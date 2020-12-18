@@ -1,0 +1,15 @@
+<section class="container-fluid" style="margin: 100px;"></section>
+<div class="row">
+    <div class="col-2">
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="nav-link active mb-2" style="background-color: #a576c3;" [routerLink]="[ 'product' ]" routerLinkActive="active">Product</a>
+            <a class="nav-link mb-2" style="background-color: #a576c3;">Order</a>
+            <a class="nav-link mb-2" style="background-color: #a576c3;">Feedback</a>
+        </div>
+    </div>
+    <div class="col-10">
+        <div class="tab-content">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

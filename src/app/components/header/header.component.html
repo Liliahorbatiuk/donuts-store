@@ -1,0 +1,72 @@
+<!-- <header style="background-image: url(assets/images/head.jpg);"> -->
+    <div class="wrapper">
+        <div class="nav">
+            <div class="nav__body">
+                <div class="nav__logo">
+                    <a class="navbar-brand" [routerLink]="[ 'home' ]">D<span style="color: fuchsia;">O</span>NUTS
+                        STORE</a>
+                </div>
+                <div class="nav__burger" [ngClass]="{'active': active}">
+                    <span (click)="toggle()">☰</span>
+                </div>
+                <div class="nav__menu" [ngClass]="{'active': active}">
+                    <ul class="nav__list">
+                        <li class="nav-item active">
+                            <a class="nav__link" [routerLink]="[ '/about' ]">Про нас</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav__link" href="#">Переваги</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav__link" [routerLink]="[ '/catalog' ]">Каталог</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav__link" href="#">Відгуки</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav__link" href="#">Оплата і доставка</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav__right">
+                    <div class="headerSection header-cart">
+                        <img src="/assets/images/shopping.svg" alt="basket">
+                        <a (click)="openBasket(basket)">Корзина</a>
+                        <div class="headerSection">
+                            <div class="tel open-popup hidden-xs hidden-sm">
+                                <img src="/assets/images/phone.svg" alt="phone">
+                                <span>066 888 43 77</span>
+                            </div>
+                            <a href="tel:0668884377" class="mobileTel hidden-md hidden-lg">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--/.Navbar-->
+
+    <ng-template #basket>
+        <div class="modal-header">
+            <h4 class="modal-title pull-left">Корзина</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <hr>
+            <h5>До оплати:</h5>
+            <button class="view-btn">Оформити замовлення</button>
+        </div>
+    </ng-template>
+
+    <!-- <div class="header-center">
+        <span class="title">Пончики як в Америці</span>
+        <p class="title-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <button class="view-btn">Каталог</button>
+    </div> -->
+
+
+<!-- </header> -->

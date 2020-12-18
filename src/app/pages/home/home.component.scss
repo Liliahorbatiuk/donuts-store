@@ -1,0 +1,456 @@
+@import "/src/app/base/mixins";
+@import "/src/app/base/variables";
+
+:root {
+    --purple: #94399a;
+}
+
+.header{
+    width: 100%;
+    height: 700px;
+    background-size: cover;
+    background-position: bottom;
+    padding: 60px;
+}
+
+.header-center{
+    width: 400px;
+    height: 500px;
+    text-align: left;
+    color: #fff;
+    margin: 60px 0;
+}
+
+.header-center .title {
+    font-size: 3em;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    font-family: 'Comfotaa', cursive;
+    font-weight: 700;
+    
+} 
+
+.header-center .title-text{
+    margin: 20px 0;
+}
+
+.container-about {
+    width: 970px;
+    height: 460px;
+    margin: 50px auto 70px;
+    @include flex (flex, column wrap, space-between, center)
+    
+}
+
+.about-img {
+    width: 50%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    border-radius: 5px;
+}
+
+.about-text {
+    width: 40%;
+    height: 100%;
+    @include flex (flex, column wrap, center, left);
+    font-family: 'Comfotaa';
+}
+
+.about-text span {
+    text-decoration: underline;
+    cursor: pointer;
+    outline: none;
+}
+
+.about-text h3 {
+    font-family: 'Comfotaa', cursive;
+    font-weight: bold;
+}
+
+.advantage, .delivery {
+   padding: 50px 0;
+}
+
+.container-advantages {
+    width: 970px;
+    margin: 50px auto;
+    @include flex (flex, row nowrap, space-between, center);
+}
+
+.advantages-box {
+    width: 30%;
+    margin: 0 20px auto;
+    @include flex (flex, row nowrap, space-between, center);
+}
+
+.advantages-description {
+    width: 70%;
+    color: $color;
+}
+
+.advantages-description span {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.advantages-img img {
+    width: 60px;
+    height: 60px;
+}
+
+.advantages-title {
+    text-align: center;
+    font-family: "Comfortaa", cursive;
+    font-weight: bold;
+}
+
+.container-goods {
+    width: 970px;
+    @include flex(flex, row wrap, space-between, center);
+    margin: 50px auto;
+}
+
+.goods-title {
+    font-weight: bold;
+    text-align: center;
+    font-family: $ff;
+}
+
+.goods-card {
+    width: 30%;
+    min-height: 300px;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 20px 0px #be93c1;
+    margin: 10px 0;
+    &__img {
+        width: 100%;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 200px;
+            height: 200px;
+        }
+    }
+    &__title {
+        @include flex (flex, row nowrap, space-between, center);
+        width: 100%;
+        .don-name {
+            font-weight: $bold-text;
+            font-size: 18px;
+            
+        }
+        .don-price {
+            font-weight: $bold-text;
+            font-size: 22px;
+        }
+    }
+    &__description span {
+        font-weight: $bold-text;
+    }
+    &__product-сounter {
+        @include flex (flex, row nowrap, space-between, center);
+        span {
+            color: $color;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        input {
+            width: 25px;
+            height: 25px;
+            border: none;
+            text-align: center;
+        }
+    }
+    &__btn {
+        width: 150px;
+        height: 40px;
+        font-family: "Roboto", sans-serif;
+        font-size: 16px;
+        outline: $color;
+        border: none;
+        cursor: pointer;
+        border-radius: 50px;
+        display: inline-block;
+        color: #fff;
+        background-image: linear-gradient(to right, #961ab0, #a63bc3, #b655d5, #c76de8, #d784fb);
+        transition: all 0.5s;
+        transition: active 1s;
+    }   
+}
+
+.view-btn {
+    width: 200px;
+    height: 40px;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    outline: $color;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    display: inline-block;
+    color: #fff;
+    background-image: linear-gradient(to right, #961ab0, #a63bc3, #b655d5, #c76de8, #d784fb);
+}
+
+.view-btn:hover {
+    box-shadow:  -8px 10px 20px 1px $color;
+}
+
+.create {
+    width: 100%;
+    height: 500px;
+    background-image: url(/assets/images/line.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.create-box {
+    width: 970px;
+    margin: 50px auto;
+    @include flex (flex, row nowrap, space-around, center);
+}
+
+.create-text {
+    width: 35%;
+    height: 280px;
+    margin: auto 20px;
+    color: #fff;
+    @include flex (flex, column wrap, space-between, center);
+}
+
+.create-text h3{
+    font-family: $ff;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.box {
+    width: 50%;
+}
+
+.box img {
+    width: 620px;
+    height: 468px;
+}
+
+.container-feedback {
+    width: 970px;
+    margin: 50px auto;
+    @include flex(flex, row nowrap, space-between, center);
+}
+
+.feedback-title {
+    text-align: center;
+    font-family: $ff;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.feedback-card {
+    width: 30%;
+    min-height: 100px;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 20px 0px #be93c1;
+    margin: 0 10px;
+    &__avatar {
+        position: relative;
+        top: -30%;
+        left: 30%;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+    }
+    &__description {
+        margin-top: -3rem;
+        @include flex(flex, row wrap, space-between, center);
+        // text-align: justify;
+    }
+    &__name {
+        width: 70%;
+        font-weight: bold;
+        font-size: 18px;
+    }
+    &__date {
+        width: 30%;
+        font-size: 14px;
+    }
+    &__grade {
+        color: yellow;
+    }
+}
+
+@media (max-width: 980px) {
+
+    .header-center{
+        @include flex(flex, column nowrap, center, center);
+        width: 100%;
+        text-align: center;
+        text-shadow: 7px 6px 20px #290331;
+    }
+    
+    .header-center .title {
+        font-size: 3em;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        font-family: 'Comfotaa', cursive;
+        font-weight: 700;
+        
+    } 
+    
+    .header-center .title-text{
+        margin: 20px 0;
+    }
+
+    .container-about {
+        width: 780px;
+        height: 440px;
+        margin: 50px auto;
+    }
+
+    .about-img {
+        width: 53%;
+        height: 90%;
+    }
+
+    .about-text {
+        width: 40%;
+        height: 100%;
+        font-family: 'Comfotaa';
+    }
+
+    .container-advantages {
+        width: 780px;
+    }
+    
+    .advantages-img img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .container-goods {
+        width: 780px;
+        @include flex(flex, row wrap, flex-start, center);
+
+    }
+
+    .goods-card {
+        width: 40%;
+        margin: 10px 20px;
+    }
+
+
+    .create {
+        height: 400px;
+    }
+
+    .create-box {
+        width: 780px;
+    }
+
+    .create-text {
+        width: 40%;
+        @include flex(flex, row wrap, flex-start, center);
+        padding: 30px 0;
+    }
+
+    .box img {
+        width: 433px;
+        height: 361px;
+    }
+
+    .container-feedback {
+        width: 780px;
+    }
+}
+
+@media (max-width: 475px) {
+    .container-about {
+        width: 320px;
+        height: 500px;
+        margin: 50px auto;
+        @include flex(flex, column nowrap, center, center);
+
+    }
+
+    .about-img {
+        width: 100%;
+    }
+
+    .about-text {
+        width: 100%;
+        height: 100%;
+        font-family: 'Comfotaa';
+    }
+
+    .container-advantages {
+        width: 320px;
+        @include flex (flex, column nowrap, space-between, center);
+
+    }
+
+    .advantages-box {
+        width: 100%;
+        margin: 20px auto;
+    }
+    
+    .advantages-img img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .container-goods {
+        width: 320px;
+        @include flex(flex, column nowrap, center, center);
+
+    }
+
+    .goods-card {
+        width: 100%;
+        margin: 10px 20px;
+    }
+
+
+    .create {
+        height: 400px;
+    }
+
+    .create-box {
+        width: 320px;
+        @include flex(flex, column nowrap, center, center);
+
+    }
+
+    .create-text {
+        width: 100%;
+    }
+
+    .create-text h3{
+        color: #742e79;
+    }
+
+    .box, .box img {
+        display: none;
+    }
+
+    .container-feedback {
+        width: 320px;
+        // @include flex(flex, column nowrap, center, center);
+        overflow: scroll;
+    }
+    // .feedback-card {
+        // width: 100%;
+        // margin-top: 30px;
+
+    // }
+}

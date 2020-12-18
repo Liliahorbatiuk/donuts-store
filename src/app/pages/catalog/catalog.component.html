@@ -1,0 +1,118 @@
+<section class="goods">
+    <h3 class="goods-title">Каталог</h3>
+    <div class="wrapper">
+        <div class="nav-filter">
+            <accordion [isAnimated]="true">
+                <accordion-group heading="Начинка">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="without">
+                        <label class="custom-control-label" for="without">Без начинки</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="cherry">
+                        <label class="custom-control-label" for="cherry">Вишня</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="strawberry">
+                        <label class="custom-control-label" for="strawberry">Полуниця</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="choco">
+                        <label class="custom-control-label" for="choco">Шоколад</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="saltcaram">
+                        <label class="custom-control-label" for="saltcaram">Солена карамель</label>
+                    </div>
+                </accordion-group>
+                <accordion-group heading="Крем">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="vanille">
+                        <label class="custom-control-label" for="vanille">Ванільний</label>
+                    </div>
+                </accordion-group>
+                <accordion-group heading="Посипка">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="coconut">
+                        <label class="custom-control-label" for="coconut">Кокосова стружка</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="crumb">
+                        <label class="custom-control-label" for="crumb">Крамб</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="peanut">
+                        <label class="custom-control-label" for="peanut">Арахіс</label>
+                    </div>
+                </accordion-group>
+            </accordion>
+        </div>
+
+        <div class="container-goods" *ngFor="let prod of products">
+            <div class="goods-card">
+                <div class="goods-card__img">
+                    <img src="/assets/images/zebra.png" alt="">
+                </div>
+                <div class="goods-card__title">
+                    <span class="don-name">Зебра</span>
+                    <span class="don-price">35 ₴</span>
+                </div>
+                <div class="goods-card__description">
+                    <span>100 г</span>
+                    <p>Пончик з шоколадно-горіховою начинкою і глазур'ю з білого шоколаду.</p>
+                </div>
+                <div class="goods-card__product-сounter">
+                    <div class="don-counter">
+                        <span class="productCount lessProduct">⊖</span>
+                        <input class="product-qty" maxlength="3" type="text" value="1">
+                        <span class="productCount moreProduct update-cart-product">⊕</span>
+                    </div>
+                    <button class="goods-card__btn">В корзину</button>
+                </div>
+            </div>
+
+            <div class="goods-card">
+                <div class="goods-card__img">
+                    <img [src]="prod.image" alt="">
+                </div>
+                <div class="goods-card__title">
+                    <span class="don-name">{{ prod.name }}</span>
+                    <span class="don-price">{{ prod.price }}</span>
+                </div>
+                <div class="goods-card__description">
+                    <span>{{ prod.weight }}</span>
+                    <p>{{ prod.description }}</p>
+                </div>
+                <div class="goods-card__product-сounter">
+                    <div class="don-counter">
+                        <span class="productCount lessProduct">⊖</span>
+                        <input class="product-qty" maxlength="3" type="text" value="1">
+                        <span class="productCount moreProduct update-cart-product">⊕</span>
+                    </div>
+                    <button class="goods-card__btn">В корзину</button>
+                </div>
+            </div>
+            <!-- <div class="goods-card">
+                <div class="goods-card__img">
+                    <img src="/assets/images/black.png" alt="">
+                </div>
+                <div class="goods-card__title">
+                    <span class="don-name">Black</span>
+                    <span class="don-price">35 ₴</span>
+                </div>
+                <div class="goods-card__description">
+                    <span>100 г</span>
+                    <p>Пончик з шоколадно-горіховою начинкою і глазур'ю з білого шоколаду.</p>
+                </div>
+                <div class="goods-card__product-сounter">
+                    <div class="don-counter">
+                        <span class="productCount lessProduct">⊖</span>
+                        <input class="product-qty" maxlength="3" type="text" value="1">
+                        <span class="productCount moreProduct update-cart-product">⊕</span>
+                    </div>
+                    <button class="goods-card__btn">В корзину</button>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</section>
