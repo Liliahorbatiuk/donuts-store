@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 
@@ -40,6 +41,7 @@ import { AdminProductComponent } from './admin/admin-product/admin-product.compo
     BrowserAnimationsModule,
     ModalModule.forRoot(),
     AccordionModule.forRoot(),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

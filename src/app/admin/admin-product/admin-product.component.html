@@ -18,21 +18,20 @@
     </div>
     <div class="form-group">
         <label for="price">Weight</label>
-        <input [(ngModel)]="weight" type="number" class="form-control" id="weight">
+        <input [(ngModel)]="weight" type="text" class="form-control" id="weight">
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Upload</span>
         </div>
         <div class="custom-file">
-            <input type="file" class="custom-file-input" id="prodImage" (change)="uploadFile($event)">
+            <input type="file" class="custom-file-input" id="prodImage" > 
+            <!-- (change)="uploadFile($event)" -->
             <label class="custom-file-label" for="prodImage">Choose file</label>
         </div>
     </div>
-    <button *ngIf="!editStatus" class="btn btn-dark" (click)="addProduct()"
-        (click)="modalRef.hide()">Add</button>
-    <button *ngIf="editStatus" (click)="saveProduct(prod)" (click)="modalRef.hide()"
-        class="btn btn-light">Save edit</button>
+    <button class="btn btn-dark" (click)="addAdminProduct()">Add</button>
+    <button  class="btn btn-light">Save edit</button>
 </div>
 
 <table class="table table-bordered">
@@ -56,9 +55,8 @@
             <td>{{ prod.price }}</td>
             <td>{{ prod.weight }}</td>
             <td>{{ prod.image }}</td>
-            <td><button (click)="openModal(modal)" (click)="editProduct(prod)"
-                    class="btn btn-dark">Edit</button></td>
-            <td><button (click)="openModal(del)" class="btn btn-dark">Delete</button></td>
+            <td><button (click)="editProduct(prod)" class="btn btn-dark">Edit</button></td>
+            <td><button (click)="deleteAdminProduct(prod)" class="btn btn-dark">Delete</button></td>
         </tr>
     </tbody>
 </table>

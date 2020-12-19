@@ -1,0 +1,12 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "oreo",
+      "description": "adwdxsd",
+      "weight": "25",
+      "price": 200,
+      "count": 1
+    }
+  ]
+}

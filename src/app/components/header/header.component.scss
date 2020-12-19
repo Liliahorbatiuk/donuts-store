@@ -60,6 +60,13 @@
     background-color:#895ea6bc
 }
 
+.header-cart {
+    color: #fff;
+    cursor: pointer;
+    width: 200px;
+}
+
+
 @media (max-width: 1100px) {
     .nav {
         &__burger {
@@ -101,7 +108,24 @@
             }
         }
     }
+
     
+}
+
+@media (max-width: 475px) {
+    .nav {
+        &__right {
+            .header-cart a {
+                visibility: hidden;
+            }
+        }
+    }
+    .header-cart {
+        color: #fff;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+    }
 }
 
 .nav-right a {

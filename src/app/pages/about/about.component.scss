@@ -37,3 +37,42 @@
         
     }
 }
+
+@media (max-width: 878px) {
+    .history {
+        width: 678px;
+        margin: 80px auto;
+        @include flex (flex, column nowrap, space-between, center);
+        &__title {
+            font-family: $ff;
+            text-align: center
+        }
+        &__video {
+            width: 100%;
+            margin: 20px 0 0;
+            @include flex (flex, row nowrap, space-between, center);
+            video {
+                width: 50%;
+                height: 400px;
+            }
+            p {
+                width: 47%;
+                margin-top: 64px;
+                text-align: justify;
+            }
+        }
+        &__photo {
+            width: 100%;
+            @include flex (flex, row nowrap, space-between, center);
+            img {
+                width: 47%;
+                height: 310px;
+            }
+            p {
+                width: 50%;
+                text-align: justify;
+            }
+            
+        }
+    }
+}

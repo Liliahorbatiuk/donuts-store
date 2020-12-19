@@ -1,4 +1,3 @@
-<!-- <header style="background-image: url(assets/images/head.jpg);"> -->
     <div class="wrapper">
         <div class="nav">
             <div class="nav__body">
@@ -6,19 +5,16 @@
                     <a class="navbar-brand" [routerLink]="[ 'home' ]">D<span style="color: fuchsia;">O</span>NUTS
                         STORE</a>
                 </div>
-                <div class="nav__burger" [ngClass]="{'active': active}">
-                    <span (click)="toggle()">☰</span>
-                </div>
                 <div class="nav__menu" [ngClass]="{'active': active}">
-                    <ul class="nav__list">
-                        <li class="nav-item active">
+                    <ul class="nav__list" (click)="toggle()">
+                        <li class="nav-item active" >
                             <a class="nav__link" [routerLink]="[ '/about' ]">Про нас</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav__link" href="#">Переваги</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav__link" [routerLink]="[ '/catalog' ]">Каталог</a>
+                            <a class="nav__link" [routerLink]="[ '/catalog' ]" >Каталог</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav__link" href="#">Відгуки</a>
@@ -26,21 +22,28 @@
                         <li class="nav-item">
                             <a class="nav__link" href="#">Оплата і доставка</a>
                         </li>
+                        <li class="nav-item tel">
+                            <img src="/assets/images/phone.svg" alt="phone" style="height: 20px; width: 20px;">
+                            <span>066 888 43 77</span>
+                        </li>
                     </ul>
                 </div>
                 <div class="nav__right">
                     <div class="headerSection header-cart">
-                        <img src="/assets/images/shopping.svg" alt="basket">
+                        <img src="/assets/images/shopping.svg" alt="basket" (click)="openBasket(basket)">
                         <a (click)="openBasket(basket)">Корзина</a>
-                        <div class="headerSection">
-                            <div class="tel open-popup hidden-xs hidden-sm">
+                        <!-- <div class="headerSection">
+                            <div class="tel">
                                 <img src="/assets/images/phone.svg" alt="phone">
                                 <span>066 888 43 77</span>
                             </div>
                             <a href="tel:0668884377" class="mobileTel hidden-md hidden-lg">
                             </a>
-                        </div>
+                        </div> -->
                     </div>
+                </div>
+                <div class="nav__burger" [ngClass]="{'active': active}">
+                    <span (click)="toggle()">☰</span>
                 </div>
             </div>
         </div>
@@ -61,12 +64,3 @@
             <button class="view-btn">Оформити замовлення</button>
         </div>
     </ng-template>
-
-    <!-- <div class="header-center">
-        <span class="title">Пончики як в Америці</span>
-        <p class="title-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <button class="view-btn">Каталог</button>
-    </div> -->
-
-
-<!-- </header> -->

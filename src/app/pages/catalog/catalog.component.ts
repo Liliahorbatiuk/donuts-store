@@ -14,11 +14,13 @@ export class CatalogComponent implements OnInit {
   constructor(private prodService: ProductsService) { }
 
   ngOnInit(): void {
-    this.getProducts();
+    this.getProduct();
   }
 
-  getProducts(): void {
-    this.products = this.prodService.arrProd
+  getProduct(): void {
+    this.prodService.getProducts()
   }
+
+  
 
 }

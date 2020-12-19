@@ -48,8 +48,8 @@
             </accordion>
         </div>
 
-        <div class="container-goods" *ngFor="let prod of products">
-            <div class="goods-card">
+        <div class="container-goods" >
+            <!-- <div class="goods-card" *ngFor="let prod of products">
                 <div class="goods-card__img">
                     <img src="/assets/images/zebra.png" alt="">
                 </div>
@@ -69,18 +69,18 @@
                     </div>
                     <button class="goods-card__btn">В корзину</button>
                 </div>
-            </div>
+            </div> -->
 
-            <div class="goods-card">
+            <div class="goods-card" *ngFor="let prod of products">
                 <div class="goods-card__img">
-                    <img [src]="prod.image" alt="">
+                    <img [src]="prod?.image" alt="">
                 </div>
                 <div class="goods-card__title">
                     <span class="don-name">{{ prod.name }}</span>
-                    <span class="don-price">{{ prod.price }}</span>
+                    <span class="don-price">{{ prod.price }}₴</span>
                 </div>
                 <div class="goods-card__description">
-                    <span>{{ prod.weight }}</span>
+                    <span>{{ prod.weight }}г</span>
                     <p>{{ prod.description }}</p>
                 </div>
                 <div class="goods-card__product-сounter">

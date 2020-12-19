@@ -8,6 +8,6 @@ export class Product implements IProduct {
         public weight: string,
         public price: number,
         public image: string,
-        public count: number,
+        public count: number = 1,
     ){}
 }
