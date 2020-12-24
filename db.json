@@ -2,11 +2,21 @@
   "products": [
     {
       "id": 1,
-      "name": "oreo",
-      "description": "adwdxsd",
-      "weight": "25",
-      "price": 200,
+      "name": "Оreo",
+      "description": "Пончик з крихтами печива Орео.",
+      "weight": "90",
+      "price": 50,
+      "image": "",
       "count": 1
+    },
+    {
+      "name": "Bedge",
+      "description": "Пончик з шоколадно-горіховою начинкою і глазур'ю з білого шоколаду.",
+      "weight": "90",
+      "price": 35,
+      "image": "",
+      "count": 1,
+      "id": 3
     }
   ]
 }

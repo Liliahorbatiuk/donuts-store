@@ -90,10 +90,19 @@ footer .bgImage {
     }
 }
 
-@media (max-width: 470px) {
+@media (max-width: 475px) {
     footer .bgImage {
         padding: 20px 50px;
         display: flex;
-        flex-flow: column nowrap;
+        flex-flow: row wrap;
+        font-size: 14px;
     } 
+
+    #footer-logo{
+        width: 180px;
+    }
+
+    .footerNav {
+        width: 120px;
+    }
 }

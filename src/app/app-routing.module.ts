@@ -8,13 +8,14 @@ import { CatalogComponent } from './pages/catalog/catalog.component';
 import { CreateComponent } from './pages/create/create.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home'},
   { path: 'home', component:  HomeComponent },
   { path: 'about', component: AboutComponent },
-  // { path: 'advantages', component:  },
   { path: 'catalog', component: CatalogComponent },
+  { path: 'catalog/:id', component: ProductDetailsComponent },
   // { path: 'feedback', component:  },
   // { path: 'delivery', component:  },
   { path: 'create', component: CreateComponent },
@@ -22,7 +23,6 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent, children: [
     { path: '', pathMatch: 'full', redirectTo: 'product'},
     { path: 'product', component: AdminProductComponent },
-
   ]},
   { path: '**', component: NotFoundComponent }, 
 ];

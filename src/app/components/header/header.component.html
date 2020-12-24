@@ -5,7 +5,7 @@
                     <a class="navbar-brand" [routerLink]="[ 'home' ]">D<span style="color: fuchsia;">O</span>NUTS
                         STORE</a>
                 </div>
-                <div class="nav__menu" [ngClass]="{'active': active}">
+                <div class="nav__menu" [ngClass]="{'active': !active}">
                     <ul class="nav__list" (click)="toggle()">
                         <li class="nav-item active" >
                             <a class="nav__link" [routerLink]="[ '/about' ]">Про нас</a>
@@ -17,10 +17,10 @@
                             <a class="nav__link" [routerLink]="[ '/catalog' ]" >Каталог</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav__link" href="#">Відгуки</a>
+                            <a class="nav__link" href="#feedback">Відгуки</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav__link" href="#">Оплата і доставка</a>
+                            <a class="nav__link" href="#delivery">Оплата і доставка</a>
                         </li>
                         <li class="nav-item tel">
                             <img src="/assets/images/phone.svg" alt="phone" style="height: 20px; width: 20px;">
@@ -42,7 +42,7 @@
                         </div> -->
                     </div>
                 </div>
-                <div class="nav__burger" [ngClass]="{'active': active}">
+                <div class="nav__burger">
                     <span (click)="toggle()">☰</span>
                 </div>
             </div>

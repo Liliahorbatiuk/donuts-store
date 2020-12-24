@@ -48,8 +48,8 @@
             </accordion>
         </div>
 
-        <div class="container-goods" >
-            <!-- <div class="goods-card" *ngFor="let prod of products">
+        <div class="container-goods">
+            <div class="goods-card">
                 <div class="goods-card__img">
                     <img src="/assets/images/zebra.png" alt="">
                 </div>
@@ -69,9 +69,9 @@
                     </div>
                     <button class="goods-card__btn">В корзину</button>
                 </div>
-            </div> -->
+            </div>
 
-            <div class="goods-card" *ngFor="let prod of products">
+            <div class="goods-card" *ngFor="let prod of products" [routerLink]="[ '/catalog', prod.id ]">
                 <div class="goods-card__img">
                     <img [src]="prod?.image" alt="">
                 </div>
@@ -86,10 +86,10 @@
                 <div class="goods-card__product-сounter">
                     <div class="don-counter">
                         <span class="productCount lessProduct">⊖</span>
-                        <input class="product-qty" maxlength="3" type="text" value="1">
+                        <input class="product-qty" maxlength="3" type="text" [value]="prod.count">
                         <span class="productCount moreProduct update-cart-product">⊕</span>
                     </div>
-                    <button class="goods-card__btn">В корзину</button>
+                    <button class="goods-card__btn" >В корзину</button>
                 </div>
             </div>
             <!-- <div class="goods-card">

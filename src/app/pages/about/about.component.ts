@@ -7,11 +7,11 @@ import AOS from "aos";
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
+  active: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
-    AOS.init();
   }
 
 }

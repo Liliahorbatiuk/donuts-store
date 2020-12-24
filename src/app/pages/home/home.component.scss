@@ -69,7 +69,7 @@
 }
 
 .advantage, .delivery {
-   padding: 50px 0;
+   margin: 50px auto;
 }
 
 .container-advantages {
@@ -237,6 +237,40 @@
     height: 468px;
 }
 
+.order-container {
+    width: 970px;
+    margin: 60px auto;
+    @include flex(flex, row nowrap, space-between, center);
+    &__sweetbox {
+        width: 60%;
+        video {
+            width: 100%;
+            border-radius: 10px;
+        }
+    }
+    &__form {
+        width: 35%;
+        @include flex(flex, column nowrap, space-around, center);
+        h3 {
+            font-family: $ff;
+            font-weight: bold;
+        }
+        .form-control {
+            font-family: $ff;
+            border: 1px solid #d7b3e6;
+        }
+        .form-control:focus {
+            box-shadow: 0 0 0 0.2rem rgb(192 0 255 / 20%);
+        }
+        
+
+    }
+}
+
+.feedback {
+    margin: 50px;
+}
+
 .container-feedback {
     width: 970px;
     margin: 50px auto;
@@ -289,6 +323,7 @@
         color: yellow;
     }
 }
+
 
 
 @media (max-width: 1024px) {

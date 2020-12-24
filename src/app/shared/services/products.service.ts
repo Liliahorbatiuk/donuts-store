@@ -7,7 +7,7 @@ import { IProduct } from '../interfaces/product.interface';
   providedIn: 'root'
 })
 export class ProductsService {
-  private arrProd: Array<IProduct> = [
+  private products: Array<IProduct> = [
     {
       id: 1,
       name: 'Oreo',
@@ -18,12 +18,13 @@ export class ProductsService {
       count: 1
     }
   ]
-  private url: string
+
+  private url: string;
   constructor(private http: HttpClient) { 
     this.url = 'http://localhost:3000/products';
   }
 
-  // getProducts(): Array<IProduct> {
+  // getProduct(): Array<IProduct> {
   //   return this.arrProd;
   // }
 
@@ -36,6 +37,8 @@ export class ProductsService {
   } 
 
   postProduct(product: IProduct): Observable<IProduct> {
+    console.log(product );
+    
     return this.http.post<IProduct>(this.url, product);
   }
 
@@ -45,6 +48,10 @@ export class ProductsService {
 
   deleteProduct(product: IProduct): Observable<IProduct> {
     return this.http.delete<IProduct>(`${this.url}/${product.id}`)
+  }
+
+  getOneProduct(id: number | string): Observable<IProduct> {
+    return this.http.get<IProduct>(`${this.url}/${id}`);
   }
 
 }

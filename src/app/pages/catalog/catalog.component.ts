@@ -18,7 +18,15 @@ export class CatalogComponent implements OnInit {
   }
 
   getProduct(): void {
-    this.prodService.getProducts()
+    this.prodService.getProducts().subscribe(
+      data => {
+        this.products = data;
+      },
+      err => {
+        console.log(err);
+        
+      }
+    )
   }
 
   

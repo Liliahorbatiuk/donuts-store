@@ -142,7 +142,7 @@
     </div>
 </section>
 
-<section class="delivery">
+<section class="delivery" id="delivery">
     <h3 class="advantages-title">Доставка і оплата</h3>
     <div class="container-advantages">
         <div class="advantages-box">
@@ -177,10 +177,50 @@
     </div>
 </section>
 
-<section class="feedback">
+<section class="order-form">
+    <div class="order-container">
+        <div class="order-container__sweetbox">
+            <video autoplay loop src="/assets/images/delivery-box.mp4"></video>
+        </div>
+        <div class="order-container__form">
+            <h3>Заповніть форму для швидкого замовлення</h3>
+            <span>Передзвонимо протягом 1 хвилини</span>
+            <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><img src="/assets/images/user.svg" alt=""
+                            style="width: 20px; height: 20px;"></div>
+                </div>
+                <input type="text" class="form-control" placeholder="Ваше ім'я">
+            </div>
+            <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><img src="/assets/images/phone2.svg" alt=""
+                            style="width: 20px; height: 20px;"></div>
+                </div>
+                <input type="tel" class="form-control" placeholder="38(___)-___-__-__">
+            </div>
+            <button class="view-btn">Замовити</button>
+
+        </div>
+    </div>
+</section>
+
+<section class="feedback" id="feedback">
     <h3 class="feedback-title">Відгуки наших клієнтів</h3>
-    <div class="container-feedback">
-        <div class="feedback-card">
+    <!-- <div class="container-feedback"> -->
+    <!-- <div class="feedback-card" *ngFor="let slide of slides">
+            <div class="feedback-card__avatar">
+                <img src="/assets/images/woman.png" alt="">
+            </div>
+            <div class="feedback-card__description">
+                <span class="feedback-card__name">{{ slide.name }}</span>
+                <span class="feedback-card__date">17.12.20</span>
+                <span class="feedback-card__grade">★★★★★</span>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, nulla?</p>
+                <span style="text-decoration: underline;">Читати повністю 🠖</span>
+            </div>
+        </div> -->
+    <!-- <div class="feedback-card">
             <div class="feedback-card__avatar">
                 <img src="/assets/images/woman.png" alt="">
             </div>
@@ -191,8 +231,8 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, nulla?</p>
                 <span style="text-decoration: underline;">Читати повністю 🠖</span>
             </div>
-        </div>
-        <div class="feedback-card">
+        </div> -->
+    <!-- <div class="feedback-card">
             <div class="feedback-card__avatar">
                 <img src="/assets/images/woman.png" alt="">
             </div>
@@ -203,18 +243,29 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, nulla?</p>
                 <span style="text-decoration: underline;">Читати повністю 🠖</span>
             </div>
-        </div>
+        </div> -->
+    <!-- </div> -->
+</section>
+
+<!-- <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)"
+    (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)">
+    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
         <div class="feedback-card">
             <div class="feedback-card__avatar">
                 <img src="/assets/images/woman.png" alt="">
             </div>
             <div class="feedback-card__description">
-                <span class="feedback-card__name">Ірина</span>
-                <span class="feedback-card__date">17.12.20</span>
-                <span class="feedback-card__grade">★★★★★</span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, nulla?</p>
+                <span class="feedback-card__name">{{ slide.name }}</span>
+                <span class="feedback-card__date">{{ slide.date | date:'d.M.yy' }}</span>
+                <span class="feedback-card__grade">{{ slide.grade }}</span>
+                <p>{{ slide.description }}</p>
                 <span style="text-decoration: underline;">Читати повністю 🠖</span>
             </div>
         </div>
     </div>
-</section>
+</ngx-slick-carousel> -->
+
+<!-- <button (click)="addSlide()">Add</button>
+<button (click)="removeSlide()">Remove</button>
+<button (click)="slickModal.slickGoTo(2)">slickGoto 2</button>
+<button (click)="slickModal.unslick()">unslick</button> -->

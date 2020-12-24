@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   constructor(private modalService: BsModalService) { }
 
   ngOnInit(): void {
-    // this.toggle();
+    this.toggle();
   }
 
   openBasket(template: TemplateRef<any>): void {

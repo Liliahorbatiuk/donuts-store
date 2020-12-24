@@ -14,7 +14,7 @@ export class AdminProductComponent implements OnInit {
   description: string;
   price: number;
   weight: string;
-  prodImage: string;
+  prodImage: string = '';
   editStatus = false;
 
   constructor(private prodService: ProductsService) { }
@@ -36,10 +36,11 @@ export class AdminProductComponent implements OnInit {
 
   addAdminProduct(): void {
     const newP = new Product(1, this.prodName, this.description, this.weight, this.price, this.prodImage);
+    // console.log(newP);
+    delete newP.id;
     this.prodService.postProduct(newP).subscribe(() => {
       this.getAdminProducts()
     })
-    delete newP.id;
     this.resetForm();
   }
 
@@ -47,6 +48,23 @@ export class AdminProductComponent implements OnInit {
     this.prodService.deleteProduct(product).subscribe(() => {
       this.getAdminProducts();
     })
+  }
+
+  editAdminProduct(product: IProduct): void {
+    this.prodName = product.name;
+    this.description = product.description;
+    this.weight = product.weight;
+    this.price = product.price;
+    this.editStatus = true;
+  }
+
+  saveAdminProduct(): void {
+    const updP = new Product(1, this.prodName, this.description, this.weight, this.price, this.prodImage);
+    this.prodService.updateProduct(updP).subscribe(() => {
+      this.getAdminProducts()
+    })
+    this.resetForm();
+    this.editStatus = false;
   }
 
   private resetForm(): void {
