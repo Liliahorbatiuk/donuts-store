@@ -33,10 +33,7 @@
               "./node_modules/aos/dist/aos.css",
               "src/styles.scss"
             ],
-
-            "scripts": [
-
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -129,6 +126,10 @@
               "devServerTarget": "donuts-store:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

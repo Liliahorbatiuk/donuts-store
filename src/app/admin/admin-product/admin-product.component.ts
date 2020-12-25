@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/shared/classes/product.model';
 import { IProduct } from 'src/app/shared/interfaces/product.interface';
 import { ProductsService } from 'src/app/shared/services/products.service';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-admin-product',
@@ -14,10 +16,13 @@ export class AdminProductComponent implements OnInit {
   description: string;
   price: number;
   weight: string;
-  prodImage: string = '';
+  prodImage: string;
   editStatus = false;
 
-  constructor(private prodService: ProductsService) { }
+  uploadPercent: Observable<number>;
+
+  constructor(private prodService: ProductsService,
+              private storage: AngularFireStorage) { }
 
   ngOnInit(): void {
     this.getAdminProducts();
@@ -72,6 +77,22 @@ export class AdminProductComponent implements OnInit {
     this.description = '';
     this.weight = '';
     this.price = null; 
+    this.prodImage = null;
+  }
+
+  uploadFile(event) {
+    const file = event.target.files[0];
+    const filePath = `images/${file.name}`;
+    console.log(file, filePath);
+    const ref = this.storage.ref(filePath);
+    const task = ref.put(file); 
+    this.uploadPercent = task.percentageChanges();
+    task.then(image => { 
+      this.storage.ref(`images/${image.metadata.name}`).getDownloadURL().subscribe(url => {
+        this.prodImage = url;
+        console.log(this.prodImage); 
+      });
+    }); 
   }
 
 }

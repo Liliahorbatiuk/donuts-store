@@ -124,12 +124,18 @@
     padding: 20px;
     box-shadow: 0 0 20px 0px #be93c1;
     margin: 10px 0;
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+        transition: 0.5s;
+    }
     &__img {
         width: 100%;
         height: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
+        outline: none;
         img {
             width: 200px;
             height: 200px;
@@ -162,6 +168,7 @@
             width: 25px;
             height: 25px;
             border: none;
+            outline: none;
             text-align: center;
         }
     }

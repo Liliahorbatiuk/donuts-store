@@ -24,8 +24,10 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { SlickCarouselModule } from 'ngx-slick-carousel'; 
 
-// import { AngularFireModule } from '@angular/fire';
-// import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +39,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     CreateComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent,
+    HomeComponent, 
     AdminComponent,
     AdminProductComponent,
     ProductDetailsComponent
@@ -50,8 +52,9 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     ModalModule.forRoot(),
     AccordionModule.forRoot(),
     HttpClientModule,
-    SlickCarouselModule
-    // AngularFireModule.initializeApp(environment.firebaseConfig)
+    SlickCarouselModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule
 
   ],
   providers: [],

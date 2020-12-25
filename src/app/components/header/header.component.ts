@@ -24,7 +24,10 @@ export class HeaderComponent implements OnInit {
   }
 
   openBasket(template: TemplateRef<any>): void {
-    this.modalRef = this.modalService.show(template);
+    this.modalRef = this.modalService.show(
+      template,
+      Object.assign({}, { class: 'gray modal-lg' })
+    );
   }
 
 
@@ -35,9 +38,9 @@ export class HeaderComponent implements OnInit {
   private checkBasket(): void {
     this.orderService.basket.subscribe(
       data => {
-        this.basket = data;
-        this.totalPrice = this.getTotal(this.basket);
-        
+        // this.basket = data;
+        // this.totalPrice = this.getTotal(this.basket);
+        this.getLocalProducts();
       }
     )
   }
@@ -53,6 +56,28 @@ export class HeaderComponent implements OnInit {
 
   private getTotal(products: Array<IProduct>): number {
     return products.reduce((total, prod) => total + (prod.price * prod.count), 0);
+  }
+
+  countProduct(product: IProduct, status: boolean): void {
+    if (status) {
+      product.count++
+    }
+    else {
+      if (product.count > 1) {
+        product.count--
+      }
+    }
+    // this.totalPrice = this.getTotal(this.basket);
+    // this.orderService.basket.next(this.basket);
+    // localStorage.setItem('basket', JSON.stringify(this.basket))
+  }
+
+  removeProduct(product: IProduct): void {
+    const index = this.basket.findIndex(prod => prod.id === product.id);
+    this.basket.splice(index, 1);
+    this.totalPrice = this.getTotal(this.basket);
+    this.orderService.basket.next(this.basket);
+    localStorage.setItem('basket', JSON.stringify(this.basket))
   }
 
 }

@@ -22,7 +22,7 @@
     </div>
 </section>
 
-<section class="advantages">
+<section class="advantages" id="advantages">
     <h3 class="advantages-title">Чому вибирають нас?</h3>
     <div class="container-advantages">
         <div class="advantages-box">
@@ -60,71 +60,30 @@
 <section class="goods">
     <h3 class="goods-title">Наш асортимент</h3>
     <div class="container-goods">
-        <div class="goods-card">
-            <div class="goods-card__img">
-                <img src="/assets/images/zebra.png" alt="">
+        <div class="goods-card" *ngFor="let prod of products">
+            <div class="goods-card__img" [routerLink]="[ '/catalog', prod.id ]">
+                <!-- <img src="/assets/images/black.png" alt="">  -->
+                <img [src]="prod.image" alt="">
             </div>
             <div class="goods-card__title">
-                <span class="don-name">Зебра</span>
-                <span class="don-price">35 ₴</span>
+                <span class="don-name">{{ prod.name }}</span>
+                <span class="don-price">{{ prod.price * prod.count}} ₴</span>
             </div>
             <div class="goods-card__description">
-                <span>100 г</span>
-                <p>Пончик з шоколадно-горіховою начинкою і глазур'ю з білого шоколаду.</p>
+                <span>{{ prod.weight }} г</span>
+                <p>{{ prod.description }}</p>
             </div>
             <div class="goods-card__product-сounter">
                 <div class="don-counter">
-                    <span class="productCount lessProduct">⊖</span>
-                    <input class="product-qty" maxlength="3" type="text" value="1">
-                    <span class="productCount moreProduct update-cart-product">⊕</span>
+                    <span class="productCount lessProduct" (click)="countProduct(prod, false)">⊖</span>
+                    <input class="product-qty" readonly maxlength="3" type="text" [value]="prod.count">
+                    <span class="productCount moreProduct" (click)="countProduct(prod, true)">⊕</span>
                 </div>
-                <button class="goods-card__btn">В корзину</button>
-            </div>
-        </div>
-        <div class="goods-card">
-            <div class="goods-card__img">
-                <img src="/assets/images/saltcaramel.png" alt="">
-            </div>
-            <div class="goods-card__title">
-                <span class="don-name">Солона карамель</span>
-                <span class="don-price">40 ₴</span>
-            </div>
-            <div class="goods-card__description">
-                <span>100 г</span>
-                <p>Пончик з шоколадно-горіховою начинкою і глазур'ю з білого шоколаду.</p>
-            </div>
-            <div class="goods-card__product-сounter">
-                <div class="don-counter">
-                    <span class="productCount lessProduct">⊖</span>
-                    <input class="product-qty" maxlength="3" type="text" value="1">
-                    <span class="productCount moreProduct update-cart-product">⊕</span>
-                </div>
-                <button class="goods-card__btn">В корзину</button>
-            </div>
-        </div>
-        <div class="goods-card">
-            <div class="goods-card__img">
-                <img src="/assets/images/black.png" alt="">
-            </div>
-            <div class="goods-card__title">
-                <span class="don-name">Black</span>
-                <span class="don-price">35 ₴</span>
-            </div>
-            <div class="goods-card__description">
-                <span>100 г</span>
-                <p>Пончик з шоколадно-горіховою начинкою і глазур'ю з білого шоколаду.</p>
-            </div>
-            <div class="goods-card__product-сounter">
-                <div class="don-counter">
-                    <span class="productCount lessProduct">⊖</span>
-                    <input class="product-qty" maxlength="3" type="text" value="1">
-                    <span class="productCount moreProduct update-cart-product">⊕</span>
-                </div>
-                <button class="goods-card__btn">В корзину</button>
+                <button class="goods-card__btn" (click)="addToBasked(prod)">В корзину</button>
             </div>
         </div>
     </div>
-    <button class="view-btn">Каталог</button>
+    <button class="view-btn" [routerLink]="[ '/catalog' ]">Каталог</button>
 </section>
 
 <section class="create" style="background-image: url(/assets/images/line.png);">

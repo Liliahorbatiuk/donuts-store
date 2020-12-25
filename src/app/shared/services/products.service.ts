@@ -38,7 +38,6 @@ export class ProductsService {
 
   postProduct(product: IProduct): Observable<IProduct> {
     console.log(product );
-    
     return this.http.post<IProduct>(this.url, product);
   }
 
@@ -52,6 +51,10 @@ export class ProductsService {
 
   getOneProduct(id: number | string): Observable<IProduct> {
     return this.http.get<IProduct>(`${this.url}/${id}`);
+  }
+
+  getCountProduct(start: number, end: number): Observable<Array<IProduct>> {
+    return this.http.get<Array<IProduct>>(`${this.url}?_start=${start}&_end=${end}`);
   }
 
 }

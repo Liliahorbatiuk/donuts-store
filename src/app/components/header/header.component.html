@@ -11,7 +11,7 @@
                         <a class="nav__link" [routerLink]="[ '/about' ]">Про нас</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav__link" href="#">Переваги</a>
+                        <a class="nav__link" href="#advantages">Переваги</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav__link" [routerLink]="[ '/catalog' ]">Каталог</a>
@@ -30,8 +30,8 @@
             </div>
             <div class="nav__right">
                 <div class="headerSection header-cart">
-                    <img src="/assets/images/shopping.svg" alt="basket" (click)="openBasket(basket)">
-                    <a (click)="openBasket(basket)">Корзина <br>
+                    <img src="/assets/images/shopping.svg" alt="basket" (click)="openBasket(basketModal)">
+                    <a (click)="openBasket(basketModal)">Корзина <br>
                         <span class="basketPrice">{{ totalPrice }} грн</span>
                     </a>
                 </div>
@@ -45,35 +45,37 @@
 </div>
 <!--/.Navbar-->
 
-<ng-template #basket>
-    <div class="modal-header">
+<ng-template #basketModal>
+    <div class="modal-header" >
         <h4 class="modal-title pull-left">Корзина</h4>
-        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-            <span aria-hidden="true">&times;</span>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()" style="outline: none;">
+            <span aria-hidden="true" >&times;</span>
         </button>
     </div>
     <div class="modal-body">
-        <div class="wrapper">
-            <div class="basket-product" *ngFor="let prod of basket; let i=index">
-                <div class="basket-product__order">
-                    <img src="" alt="">
-                    <div class="basket-product__descrip">
-                        <span>{{ prod.weight }}</span>
-                        <h4>{{ prod.name }}</h4>
-                    </div>
-                </div>
-                <div class="basket-product__price">
-                    <div class="don-counter">
-                        <span class="productCount lessProduct" (click)="countProduct(prod, false)">⊖</span>
-                        <input class="product-qty" maxlength="3" type="text" [value]="prod.count">
-                        <span class="productCount moreProduct" (click)="countProduct(prod, true)">⊕</span>
-                    </div>
-                    <span>{{ prod.price * prod.count}}</span>
+        <div class="basket-product" *ngFor="let prod of basket; let i=index">
+            <div class="basket-product__order">
+                <img [src]="prod.image" alt="">
+                <div class="basket-product__descrip">
+                    <span>{{ prod.weight }} г</span>
+                    <h4>{{ prod.name }}</h4>
                 </div>
             </div>
-            <hr>
-            <h5>До оплати: {{ totalPrice }}</h5>
+            <div class="basket-product__price">
+                <span (click)="removeProduct(prod)">X</span>
+                <div class="don-counter">
+                    <span class="productCount lessProduct" (click)="countProduct(prod, false)">⊖</span>
+                    <input class="product-qty" maxlength="3" type="text" [value]="prod.count">
+                    <span class="productCount moreProduct" (click)="countProduct(prod, true)">⊕</span>
+                </div>
+                <span>{{ prod.price * prod.count}} грн</span>
+            </div>
+        </div>
+        <hr>
+        <div class="payment-order">
+            <h5>До оплати: {{ totalPrice }} грн</h5>
             <button class="view-btn">Оформити замовлення</button>
         </div>
+
     </div>
 </ng-template>

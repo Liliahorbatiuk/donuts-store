@@ -1,22 +1,40 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Оreo",
-      "description": "Пончик з крихтами печива Орео.",
+      "name": "Black",
+      "description": "Чорна смородина – джем чорної смородини, цукрова посипка, білий шоколад,  дріжджове тісто.",
       "weight": "90",
+      "price": 32,
+      "image": "https://firebasestorage.googleapis.com/v0/b/donuts-store.appspot.com/o/images%2Fblack.png?alt=media&token=a4c963a7-2275-466e-92ff-41461ab2c14f",
+      "count": 1,
+      "id": 5
+    },
+    {
+      "name": "Limon",
+      "description": "цукрова посипка, помадка, лимонна начинка, дріжджове тісто.",
+      "weight": "90",
+      "price": 35,
+      "image": "https://firebasestorage.googleapis.com/v0/b/donuts-store.appspot.com/o/images%2Fcake-maple.png?alt=media&token=a0369fed-f5e9-407a-b762-5943c3b4cbcc",
+      "count": 1,
+      "id": 7
+    },
+    {
+      "name": "Mint Oreo",
+      "description": "Cезонний аромат м’яти, поєднаний з розсипаним орео на нашому пончику з шоколадного тіста",
+      "weight": "100",
       "price": 50,
-      "image": "",
-      "count": 1
+      "image": "https://firebasestorage.googleapis.com/v0/b/donuts-store.appspot.com/o/images%2FMintOreoFudge.png?alt=media&token=9881fb25-c60c-4385-9b47-11ff06d9be83",
+      "count": 1,
+      "id": 9
     },
     {
       "name": "Bedge",
       "description": "Пончик з шоколадно-горіховою начинкою і глазур'ю з білого шоколаду.",
       "weight": "90",
       "price": 35,
-      "image": "",
+      "image": "https://firebasestorage.googleapis.com/v0/b/donuts-store.appspot.com/o/images%2Fzebra.png?alt=media&token=e1a0f56f-66c7-4492-a2b7-80e3019eca38",
       "count": 1,
-      "id": 3
+      "id": 10
     }
   ]
 }

@@ -10,7 +10,7 @@ export class OrderService {
 
   constructor() { }
 
-  addBacked(product: IProduct): void {
+  addBasked(product: IProduct): void {
     let localProducts: Array<IProduct> = [];
     if (localStorage.getItem('basket')) {
       localProducts = JSON.parse(localStorage.getItem('basket'));

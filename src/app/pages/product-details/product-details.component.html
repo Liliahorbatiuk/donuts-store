@@ -1,34 +1,35 @@
 <section>
-    <div class="donut-details">
-        <div class="donut-details__img">
-            <img [src]="prod?.image" alt="">
-        </div>
-        <div class="donut-details__details">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-end">
-                  <li class="page-item">
-                    <a class="page-link" [routerLink]="[ '/home' ]">Home</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" (click)="location.back()" style="color: #961ab0;">Каталог</a>
-                  </li>
-                </ul>
-              </nav>
-            <!-- <span [routerLink]="[ '/home' ]">Home</span><span (click)="location.back()">Назад</span> -->
-            <h3 class="donut-details__name">{{ prod?.name }}</h3>
-            <hr style="width: 80px;">
-            <span class="donut-details__price">{{ prod?.price }} грн</span>
-            <span class="donut-details__weight">{{ prod?.weight }}г</span>
-            <p class="donut-details__description">{{ prod?.description }}</p>
-            <div class="donut-details__btn">
-                <div class="don-counter">
-                    <span class="productCount lessProduct">⊖</span>
-                    <input class="product-qty" maxlength="3" type="text" value="1">
-                    <span class="productCount moreProduct">⊕</span>
-                </div>
-                <button class="view-btn">В корзину</button>
-            </div>
-
-        </div>
+  <div class="donut-details">
+    <div class="donut-details__img">
+      <img [src]="prod?.image" alt="">
     </div>
+    <div class="donut-details__details">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+          <li class="page-item">
+            <a class="page-link" [routerLink]="[ '/home' ]">Home</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link"[routerLink]="[ '/catalog' ]">Каталог</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" (click)="location.back()" style="color: #961ab0;">Назад</a>
+          </li>
+        </ul>
+      </nav>
+      <h3 class="donut-details__name">{{ prod?.name }}</h3>
+      <hr style="width: 80px;">
+      <span class="donut-details__price">{{ prod?.price * prod?.count}} грн</span>
+      <span class="donut-details__weight">{{ prod?.weight }}г</span>
+      <p class="donut-details__description">{{ prod?.description }}</p>
+      <div class="donut-details__btn">
+        <div class="don-counter">
+          <span class="productCount lessProduct" (click)="countProduct(prod, false)">⊖</span>
+          <input class="product-qty" readonly maxlength="3" type="text" [value]="prod?.count">
+          <span class="productCount moreProduct" (click)="countProduct(prod, true)">⊕</span>
+        </div>
+        <button class="view-btn" (click)="addToBasked(prod)">В корзину</button>
+      </div>
+    </div>
+  </div>
 </section>

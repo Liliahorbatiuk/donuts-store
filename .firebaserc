@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "donuts-store": {
+      "hosting": {
+        "donuts-store": [
+          "donuts-store"
+        ]
+      }
+    }
+  }
+}

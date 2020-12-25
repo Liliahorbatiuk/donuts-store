@@ -2,6 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IProduct } from 'src/app/shared/interfaces/product.interface';
+import { OrderService } from 'src/app/shared/services/order.service';
 import { ProductsService } from 'src/app/shared/services/products.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class ProductDetailsComponent implements OnInit {
   prod: IProduct;
   constructor(private activatedRoute: ActivatedRoute,
               private prodService: ProductsService,
-              public location: Location) { }
+              public location: Location,
+              private orderService: OrderService) { }
 
   ngOnInit(): void {
     this.getProduct()
@@ -30,6 +32,23 @@ export class ProductDetailsComponent implements OnInit {
         
       }
     )
+  }
+
+  countProduct(product: IProduct, status: boolean): void {
+    if (status) {
+      product.count++
+    }
+    else {
+      if (product.count > 1) {
+        product.count--
+      }
+    }
+  }
+
+  addToBasked(product: IProduct): void {
+    console.log(product);
+    this.orderService.addBasked(product);
+    product.count = 1;
   }
 
 }

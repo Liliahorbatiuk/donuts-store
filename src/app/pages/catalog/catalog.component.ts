@@ -10,7 +10,8 @@ import { ProductsService } from 'src/app/shared/services/products.service';
 })
 
 export class CatalogComponent implements OnInit {
-  products: Array<IProduct> = [];
+  products: Array<IProduct> = []; 
+  addProdStatus = false;
 
   constructor(private prodService: ProductsService,
               private orderService: OrderService) { }
@@ -44,8 +45,10 @@ export class CatalogComponent implements OnInit {
 
   addToBasked(product: IProduct): void {
     console.log(product);
-    this.orderService.addBacked(product);
+    this.orderService.addBasked(product);
     product.count = 1;
+    this.addProdStatus = true;
+
   }
 
   
