@@ -71,13 +71,13 @@
                 </div>
             </div>
 
-            <div class="goods-card" *ngFor="let prod of products" [routerLink]="[ '/catalog', prod.id ]">
-                <div class="goods-card__img">
+            <div class="goods-card" *ngFor="let prod of products" >
+                <div class="goods-card__img" [routerLink]="[ '/catalog', prod.id ]">
                     <img [src]="prod?.image" alt="">
                 </div>
                 <div class="goods-card__title">
                     <span class="don-name">{{ prod.name }}</span>
-                    <span class="don-price">{{ prod.price }}₴</span>
+                    <span class="don-price">{{ prod.price * prod.count}}₴</span>
                 </div>
                 <div class="goods-card__description">
                     <span>{{ prod.weight }}г</span>
@@ -85,11 +85,11 @@
                 </div>
                 <div class="goods-card__product-сounter">
                     <div class="don-counter">
-                        <span class="productCount lessProduct">⊖</span>
+                        <span class="productCount lessProduct" (click)="countProduct(prod, false)">⊖</span>
                         <input class="product-qty" maxlength="3" type="text" [value]="prod.count">
-                        <span class="productCount moreProduct update-cart-product">⊕</span>
+                        <span class="productCount moreProduct" (click)="countProduct(prod, true)">⊕</span>
                     </div>
-                    <button class="goods-card__btn" >В корзину</button>
+                    <button class="goods-card__btn" (click)="addToBasked(prod)">В корзину</button>
                 </div>
             </div>
             <!-- <div class="goods-card">

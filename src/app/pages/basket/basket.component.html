@@ -1,1 +1,26 @@
-<p>basket works!</p>
+<table class="table table-bordered">
+    <thead>
+        <tr class="table-active">
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Weight</th>
+            <th scope="col">Image</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let prod of basket; let i=index">
+            <td>{{ i+1 }}</td>
+            <td>{{ prod.name }}</td>
+            <td>{{ prod.description }}</td>
+            <td>{{ prod.price }}</td>
+            <td>{{ prod.weight }}</td>
+            <td>{{ prod.image }}</td>
+            <!-- <td><button (click)="editAdminProduct(prod)" class="btn btn-dark">Edit</button></td>
+            <td><button *ngIf="!editStatus" (click)="deleteAdminProduct(prod)" class="btn btn-dark">Delete</button></td> -->
+        </tr>
+    </tbody>
+</table>

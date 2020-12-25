@@ -1,66 +1,79 @@
-    <div class="wrapper">
-        <div class="nav">
-            <div class="nav__body">
-                <div class="nav__logo">
-                    <a class="navbar-brand" [routerLink]="[ 'home' ]">D<span style="color: fuchsia;">O</span>NUTS
-                        STORE</a>
-                </div>
-                <div class="nav__menu" [ngClass]="{'active': !active}">
-                    <ul class="nav__list" (click)="toggle()">
-                        <li class="nav-item active" >
-                            <a class="nav__link" [routerLink]="[ '/about' ]">Про нас</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav__link" href="#">Переваги</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav__link" [routerLink]="[ '/catalog' ]" >Каталог</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav__link" href="#feedback">Відгуки</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav__link" href="#delivery">Оплата і доставка</a>
-                        </li>
-                        <li class="nav-item tel">
-                            <img src="/assets/images/phone.svg" alt="phone" style="height: 20px; width: 20px;">
-                            <span>066 888 43 77</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="nav__right">
-                    <div class="headerSection header-cart">
-                        <img src="/assets/images/shopping.svg" alt="basket" (click)="openBasket(basket)">
-                        <a (click)="openBasket(basket)">Корзина</a>
-                        <!-- <div class="headerSection">
-                            <div class="tel">
-                                <img src="/assets/images/phone.svg" alt="phone">
-                                <span>066 888 43 77</span>
-                            </div>
-                            <a href="tel:0668884377" class="mobileTel hidden-md hidden-lg">
-                            </a>
-                        </div> -->
-                    </div>
-                </div>
-                <div class="nav__burger">
-                    <span (click)="toggle()">☰</span>
+<div class="wrapper">
+    <div class="nav">
+        <div class="nav__body">
+            <div class="nav__logo">
+                <a class="navbar-brand" [routerLink]="[ 'home' ]">D<span style="color: fuchsia;">O</span>NUTS
+                    STORE</a>
+            </div>
+            <div class="nav__menu" [ngClass]="{'active': !active}">
+                <ul class="nav__list" (click)="toggle()">
+                    <li class="nav-item active">
+                        <a class="nav__link" [routerLink]="[ '/about' ]">Про нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav__link" href="#">Переваги</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav__link" [routerLink]="[ '/catalog' ]">Каталог</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav__link" href="#feedback">Відгуки</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav__link" href="#delivery">Оплата і доставка</a>
+                    </li>
+                    <li class="nav-item tel">
+                        <img src="/assets/images/phone.svg" alt="phone" style="height: 20px; width: 20px;">
+                        <span>066 888 43 77</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav__right">
+                <div class="headerSection header-cart">
+                    <img src="/assets/images/shopping.svg" alt="basket" (click)="openBasket(basket)">
+                    <a (click)="openBasket(basket)">Корзина <br>
+                        <span class="basketPrice">{{ totalPrice }} грн</span>
+                    </a>
                 </div>
             </div>
+            <div class="nav__burger">
+                <span (click)="toggle()">☰</span>
+            </div>
         </div>
-
     </div>
-    <!--/.Navbar-->
 
-    <ng-template #basket>
-        <div class="modal-header">
-            <h4 class="modal-title pull-left">Корзина</h4>
-            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
+</div>
+<!--/.Navbar-->
+
+<ng-template #basket>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Корзина</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="wrapper">
+            <div class="basket-product" *ngFor="let prod of basket; let i=index">
+                <div class="basket-product__order">
+                    <img src="" alt="">
+                    <div class="basket-product__descrip">
+                        <span>{{ prod.weight }}</span>
+                        <h4>{{ prod.name }}</h4>
+                    </div>
+                </div>
+                <div class="basket-product__price">
+                    <div class="don-counter">
+                        <span class="productCount lessProduct" (click)="countProduct(prod, false)">⊖</span>
+                        <input class="product-qty" maxlength="3" type="text" [value]="prod.count">
+                        <span class="productCount moreProduct" (click)="countProduct(prod, true)">⊕</span>
+                    </div>
+                    <span>{{ prod.price * prod.count}}</span>
+                </div>
+            </div>
             <hr>
-            <h5>До оплати:</h5>
+            <h5>До оплати: {{ totalPrice }}</h5>
             <button class="view-btn">Оформити замовлення</button>
         </div>
-    </ng-template>
+    </div>
+</ng-template>
