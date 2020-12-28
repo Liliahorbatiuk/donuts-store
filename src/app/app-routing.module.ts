@@ -9,6 +9,8 @@ import { CreateComponent } from './pages/create/create.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { ProfileGuard } from './shared/guards/profile.guard';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -16,10 +18,9 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'catalog', component: CatalogComponent },
   { path: 'catalog/:id', component: ProductDetailsComponent },
-  // { path: 'feedback', component:  },
-  // { path: 'delivery', component:  },
   { path: 'create', component: CreateComponent },
   { path: 'basket', component: BasketComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [ProfileGuard] },
   { path: 'admin', component: AdminComponent, children: [
     { path: '', pathMatch: 'full', redirectTo: 'product'},
     { path: 'product', component: AdminProductComponent },

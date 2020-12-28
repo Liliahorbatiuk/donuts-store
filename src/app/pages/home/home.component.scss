@@ -7,18 +7,18 @@
 
 .header{
     width: 100%;
-    height: 700px;
+    height: 730px;
     background-size: cover;
     background-position: bottom;
     padding: 60px;
 }
 
 .header-center{
-    width: 400px;
+    width: 60%;
     height: 500px;
-    text-align: left;
-    color: #fff;
-    margin: 60px 0;
+    text-align: center;
+    color: #d609aafc;
+    margin: 80px auto;
 }
 
 .header-center .title {
@@ -183,7 +183,7 @@
         border-radius: 50px;
         display: inline-block;
         color: #fff;
-        background-image: linear-gradient(to right, #961ab0, #a63bc3, #b655d5, #c76de8, #d784fb);
+        background-image: linear-gradient(to right top, #f4bef4, #f2a1ef, #f081e9, #ee5ce2, #eb21d9);
         transition: all 0.5s;
         transition: active 1s;
     }   
@@ -200,7 +200,7 @@
     border-radius: 50px;
     display: inline-block;
     color: #fff;
-    background-image: linear-gradient(to right, #961ab0, #a63bc3, #b655d5, #c76de8, #d784fb);
+    background-image: linear-gradient(to right top, #f4bef4, #f2a1ef, #f081e9, #ee5ce2, #eb21d9);
 }
 
 .view-btn:hover {

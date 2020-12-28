@@ -35,7 +35,7 @@
     }
     &__link {
         color: #fff;
-        // font-weight: 600;
+        font-weight: 600;
         cursor: pointer;
     }
     &__burger {
@@ -58,7 +58,7 @@
     top: 0;
     left: 0;
     z-index: 2;
-    background-color:#895ea6bc
+    background-color:#e94ca1b8;
 }
 
 .header-cart {
@@ -90,7 +90,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url(/assets/images/texture.jpg);
+            background-image: url(/assets/images/background.jpg);
             background-size: cover;
             transition: all 0.3s ease 0s;
             overflow: auto;
@@ -105,8 +105,11 @@
                 margin: 10px ;
                 text-transform: uppercase; 
                 text-align: center; 
-
+                color: #a91452;
             }
+        }
+        &__link {
+            color: #a91452;
         }
     }  
 }

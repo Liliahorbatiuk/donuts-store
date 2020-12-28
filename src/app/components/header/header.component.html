@@ -2,7 +2,7 @@
     <div class="nav">
         <div class="nav__body">
             <div class="nav__logo">
-                <a class="navbar-brand" [routerLink]="[ 'home' ]">D<span style="color: fuchsia;">O</span>NUTS
+                <a class="navbar-brand" [routerLink]="[ 'home' ]">D<span style="color: #fcd517;; font-weight: bold;">O</span>NUTS
                     STORE</a>
             </div>
             <div class="nav__menu" [ngClass]="{'active': !active}">
@@ -26,6 +26,12 @@
                         <img src="/assets/images/phone.svg" alt="phone" style="height: 20px; width: 20px;">
                         <span>066 888 43 77</span>
                     </li>
+                    <li class="nav-item">
+                        <span *ngIf="!isLogin" (click)="openProfile(signModal)">Увійти</span>
+                    </li>
+                    <li class="nav-item">
+                        <span *ngIf="isLogin" [routerLink]="[ '/profile' ]" >Профіль</span>
+                    </li>
                 </ul>
             </div>
             <div class="nav__right">
@@ -39,6 +45,7 @@
             <div class="nav__burger">
                 <span (click)="toggle()">☰</span>
             </div>
+
         </div>
     </div>
 
@@ -46,10 +53,11 @@
 <!--/.Navbar-->
 
 <ng-template #basketModal>
-    <div class="modal-header" >
+    <div class="modal-header">
         <h4 class="modal-title pull-left">Корзина</h4>
-        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()" style="outline: none;">
-            <span aria-hidden="true" >&times;</span>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()"
+            style="outline: none;">
+            <span aria-hidden="true">&times;</span>
         </button>
     </div>
     <div class="modal-body">
@@ -77,5 +85,29 @@
             <button class="view-btn">Оформити замовлення</button>
         </div>
 
+    </div>
+</ng-template>
+
+
+<ng-template #signModal>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Вхід</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div>
+            <div class="form-group">
+                <label for="userEmail">Електронна пошта</label>
+                <input type="email" [(ngModel)]="userEmail" name="userEmail" id="userEmail" class="form-control" placeholder="email here..">
+            </div>
+            <div class="form-group">
+                <label for="userPass">Пароль</label>
+                <input type="password" [(ngModel)]="userPass" name="userPass" id="userPass" class="form-control" placeholder="password here..">
+            </div>
+            <button type="submit" class="view-btn " (click)="signUp()">Зареєструватися</button>
+            <button type="submit" class="view-btn"  (click)="signIn()">Увійти</button>
+        </div>
     </div>
 </ng-template>

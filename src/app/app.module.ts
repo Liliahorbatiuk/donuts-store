@@ -27,6 +27,10 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 @NgModule({
@@ -42,7 +46,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     HomeComponent, 
     AdminComponent,
     AdminProductComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -54,8 +59,9 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     HttpClientModule,
     SlickCarouselModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireStorageModule
-
+    AngularFireStorageModule,
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
