@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs/operators';
 import { IProduct } from 'src/app/shared/interfaces/product.interface';
 import { OrderService } from 'src/app/shared/services/order.service';
 import { ProductsService } from 'src/app/shared/services/products.service';
@@ -21,15 +22,24 @@ export class CatalogComponent implements OnInit {
   }
 
   getProduct(): void {
-    this.prodService.getProducts().subscribe(
-      data => {
-        this.products = data;
-      },
-      err => {
-        console.log(err);
+    // this.prodService.getProducts().subscribe(
+    //   data => {
+    //     this.products = data;
+    //   },
+    //   err => {
+    //     console.log(err);
         
-      }
-    )
+    //   }
+    // )
+    this.prodService.getAll().snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({ id: c.payload.doc.id, ...c.payload.doc.data() })
+        )
+      )
+    ).subscribe(data => {
+      this.products = data;
+    });
   }
 
   countProduct(product: IProduct, status: boolean): void {
@@ -48,7 +58,6 @@ export class CatalogComponent implements OnInit {
     this.orderService.addBasked(product);
     product.count = 1;
     this.addProdStatus = true;
-
   }
 
   

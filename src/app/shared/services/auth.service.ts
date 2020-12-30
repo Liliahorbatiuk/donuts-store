@@ -32,6 +32,7 @@ export class AuthService {
               .then(user => {
                 console.log(user.data);
                 localStorage.setItem('user', JSON.stringify(user.data()));
+                this.checkSignIn.next(true);
                 this.router.navigateByUrl('profile');
               })
           })

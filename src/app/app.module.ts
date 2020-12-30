@@ -25,19 +25,20 @@ import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { SlickCarouselModule } from 'ngx-slick-carousel'; 
 
 import { AngularFireModule } from '@angular/fire';
-import { environment } from '../environments/environment';
+import { environment } from '../environments/environment.prod';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { ProfileComponent } from './pages/profile/profile.component';
+import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
-    CatalogComponent,
+    CatalogComponent, 
     BasketComponent,
     NotFoundComponent,
     CreateComponent,
@@ -47,7 +48,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
     AdminComponent,
     AdminProductComponent,
     ProductDetailsComponent,
-    ProfileComponent
+    ProfileComponent,
+    AdminOrderComponent
   ],
   imports: [
     BrowserModule,

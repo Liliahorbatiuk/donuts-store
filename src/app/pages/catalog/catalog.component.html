@@ -30,6 +30,14 @@
                         <input type="checkbox" class="custom-control-input" id="vanille">
                         <label class="custom-control-label" for="vanille">Ванільний</label>
                     </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="vanille">
+                        <label class="custom-control-label" for="vanille">Шоколадний</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="vanille">
+                        <label class="custom-control-label" for="vanille">Горіховий</label>
+                    </div>
                 </accordion-group>
                 <accordion-group heading="Посипка">
                     <div class="custom-control custom-checkbox">
@@ -44,33 +52,19 @@
                         <input type="checkbox" class="custom-control-input" id="peanut">
                         <label class="custom-control-label" for="peanut">Арахіс</label>
                     </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="peanut">
+                        <label class="custom-control-label" for="peanut">Глазурь</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="peanut">
+                        <label class="custom-control-label" for="peanut">Маршмелоу</label>
+                    </div>
                 </accordion-group>
             </accordion>
         </div>
 
         <div class="container-goods">
-            <!-- <div class="goods-card">
-                <div class="goods-card__img">
-                    <img src="/assets/images/zebra.png" alt="">
-                </div>
-                <div class="goods-card__title">
-                    <span class="don-name">Зебра</span>
-                    <span class="don-price">35 ₴</span>
-                </div>
-                <div class="goods-card__description">
-                    <span>100 г</span>
-                    <p>Пончик з шоколадно-горіховою начинкою і глазур'ю з білого шоколаду.</p>
-                </div>
-                <div class="goods-card__product-сounter">
-                    <div class="don-counter">
-                        <span class="productCount lessProduct">⊖</span>
-                        <input class="product-qty" maxlength="3" type="text" value="1">
-                        <span class="productCount moreProduct update-cart-product">⊕</span>
-                    </div>
-                    <button class="goods-card__btn">В корзину</button>
-                </div>
-            </div> -->
-
             <div class="goods-card" *ngFor="let prod of products" >
                 <div class="goods-card__img" [routerLink]="[ '/catalog', prod.id ]">
                     <img [src]="prod?.image" alt="">
@@ -81,7 +75,7 @@
                 </div>
                 <div class="goods-card__description">
                     <span>{{ prod.weight }}г</span>
-                    <p>{{ prod.description }}</p>
+                    <p>{{ prod.description | slice:0:50 }}...</p> 
                 </div>
                 <div class="goods-card__product-сounter">
                     <div class="don-counter">
@@ -90,31 +84,10 @@
                         <span class="productCount moreProduct" (click)="countProduct(prod, true)">⊕</span>
                     </div>
                     <button class="goods-card__btn" (click)="addToBasked(prod)" *ngIf="!addProdStatus">В корзину</button>
-                    <button class="goods-card__btn addProd" (click)="addToBasked(prod)" *ngIf="addProdStatus">Додано</button>
+                    <!-- <button class="goods-card__btn addProd" (click)="addToBasked(prod)" *ngIf="addProdStatus">Додано</button> -->
 
                 </div>
             </div>
-            <!-- <div class="goods-card">
-                <div class="goods-card__img">
-                    <img src="/assets/images/black.png" alt="">
-                </div>
-                <div class="goods-card__title">
-                    <span class="don-name">Black</span>
-                    <span class="don-price">35 ₴</span>
-                </div>
-                <div class="goods-card__description">
-                    <span>100 г</span>
-                    <p>Пончик з шоколадно-горіховою начинкою і глазур'ю з білого шоколаду.</p>
-                </div>
-                <div class="goods-card__product-сounter">
-                    <div class="don-counter">
-                        <span class="productCount lessProduct">⊖</span>
-                        <input class="product-qty" maxlength="3" type="text" value="1">
-                        <span class="productCount moreProduct update-cart-product">⊕</span>
-                    </div>
-                    <button class="goods-card__btn">В корзину</button>
-                </div>
-            </div> -->
         </div>
     </div>
 </section>

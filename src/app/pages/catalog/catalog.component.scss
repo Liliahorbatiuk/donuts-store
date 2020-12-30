@@ -7,8 +7,9 @@
 }
 .nav-filter {
     width: 20%;
-    margin: 60px 20px 0 0;
+    margin: 60px 20px;
 }
+
 
 .goods-card {
     width: 30%;
@@ -80,7 +81,7 @@
         border-radius: 50px;
         display: inline-block;
         color: #fff;
-        background-image: linear-gradient(to right, #961ab0, #a63bc3, #b655d5, #c76de8, #d784fb);
+        background-image: linear-gradient(to right top, #f4bef4, #f2a1ef, #f081e9, #ee5ce2, #eb21d9);
         transition: all 0.5s;
         transition: active 1s;
         &:hover {
@@ -105,6 +106,13 @@
     font-family: $ff;
 }
 
+@media (max-width: 1024px) {
+    .goods-card {
+        width: 45%;
+    }
+}
+
+
 @media (max-width: 878px) {
     .wrapper {
         @include flex (flex, column nowrap, space-between, center);
@@ -119,5 +127,15 @@
     }
     .goods-card {
         width: 45%;
+    }
+}
+
+@media (max-width: 375px) {
+    .container-goods {
+        width: 320px;
+        @include flex(flex, column nowrap, center, center);
+    }
+    .goods-card {
+        width: 90%;
     }
 }

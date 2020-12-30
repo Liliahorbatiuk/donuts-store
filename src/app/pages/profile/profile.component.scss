@@ -1,0 +1,29 @@
+@import "/src/app/base/mixins";
+
+.profile-container {
+    width: 100%;
+    margin: 60px auto;
+    // @include flex (flex, row nowrap, space-between, center)
+}
+
+.account {
+    width: 30%;
+    margin: 20px;
+    min-height: 300px;
+    padding: 20px;
+    @include flex (flex, column nowrap, space-between, center);
+    &__info {
+        width: 100%;
+    }
+    &__avatar {
+        width: 100%;
+        margin: 10px auto;
+        @include flex (flex, column nowrap, center, center);
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            box-shadow: 0 0 20px 0px #be93c1;
+        }
+    }
+}

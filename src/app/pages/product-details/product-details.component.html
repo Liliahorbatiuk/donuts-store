@@ -1,22 +1,24 @@
 <section>
+  <div class="nav-wrap">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-end">
+        <li class="page-item">
+          <a class="page-link" [routerLink]="[ '/home' ]">Home</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" [routerLink]="[ '/catalog' ]">Каталог</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" (click)="location.back()" style="color: #961ab0;">Назад</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
   <div class="donut-details">
     <div class="donut-details__img">
       <img [src]="prod?.image" alt="">
     </div>
     <div class="donut-details__details">
-      <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-end">
-          <li class="page-item">
-            <a class="page-link" [routerLink]="[ '/home' ]">Home</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link"[routerLink]="[ '/catalog' ]">Каталог</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" (click)="location.back()" style="color: #961ab0;">Назад</a>
-          </li>
-        </ul>
-      </nav>
       <h3 class="donut-details__name">{{ prod?.name }}</h3>
       <hr style="width: 80px;">
       <span class="donut-details__price">{{ prod?.price * prod?.count}} грн</span>

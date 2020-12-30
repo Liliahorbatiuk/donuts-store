@@ -14,7 +14,9 @@ export class HeaderComponent implements OnInit {
   active: boolean = false;
   basket: Array<IProduct> = [];
   totalPrice = 0;
+  userName: string;
   userEmail: string;
+  userBirth: string;
   userPass: string;
   isLogin = false;
 
@@ -45,8 +47,6 @@ export class HeaderComponent implements OnInit {
   private checkBasket(): void {
     this.orderService.basket.subscribe(
       data => {
-        // this.basket = data;
-        // this.totalPrice = this.getTotal(this.basket);
         this.getLocalProducts();
       }
     )
@@ -121,5 +121,9 @@ export class HeaderComponent implements OnInit {
     this.authService.checkSignIn.subscribe(() => {
       this.checkLocalUser();
     })
+  }
+
+  signUpModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
   }
 }

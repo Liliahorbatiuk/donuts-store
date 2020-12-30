@@ -26,21 +26,27 @@
                         <img src="/assets/images/phone.svg" alt="phone" style="height: 20px; width: 20px;">
                         <span>066 888 43 77</span>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <span *ngIf="!isLogin" (click)="openProfile(signModal)">Увійти</span>
                     </li>
                     <li class="nav-item">
                         <span *ngIf="isLogin" [routerLink]="[ '/profile' ]" >Профіль</span>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
             <div class="nav__right">
+                <div class="headerSection header-cart">
+                    <img class="profileImg" src="/assets/images/user.svg" alt="profile" *ngIf="!isLogin" style="width: 40px; height: 40px;" (click)="openProfile(signModal)">
+                    <img class="profileImg" src="/assets/images/profile.svg" alt="profile" *ngIf="isLogin" style="width: 40px; height: 40px; outline: none;" [routerLink]="[ '/profile' ]">
+
+                </div>
                 <div class="headerSection header-cart">
                     <img src="/assets/images/shopping.svg" alt="basket" (click)="openBasket(basketModal)">
                     <a (click)="openBasket(basketModal)">Корзина <br>
                         <span class="basketPrice">{{ totalPrice }} грн</span>
                     </a>
                 </div>
+                
             </div>
             <div class="nav__burger">
                 <span (click)="toggle()">☰</span>
@@ -70,7 +76,7 @@
                 </div>
             </div>
             <div class="basket-product__price">
-                <span (click)="removeProduct(prod)">X</span>
+                <span class="close" (click)="removeProduct(prod)">x</span>
                 <div class="don-counter">
                     <span class="productCount lessProduct" (click)="countProduct(prod, false)">⊖</span>
                     <input class="product-qty" maxlength="3" type="text" [value]="prod.count">
@@ -89,7 +95,7 @@
 </ng-template>
 
 
-<ng-template #signModal>
+<ng-template #signModal >
     <div class="modal-header">
         <h4 class="modal-title pull-left">Вхід</h4>
         <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
@@ -97,7 +103,7 @@
         </button>
     </div>
     <div class="modal-body">
-        <div>
+        <div class="sign-form">
             <div class="form-group">
                 <label for="userEmail">Електронна пошта</label>
                 <input type="email" [(ngModel)]="userEmail" name="userEmail" id="userEmail" class="form-control" placeholder="email here..">
@@ -106,8 +112,41 @@
                 <label for="userPass">Пароль</label>
                 <input type="password" [(ngModel)]="userPass" name="userPass" id="userPass" class="form-control" placeholder="password here..">
             </div>
-            <button type="submit" class="view-btn " (click)="signUp()">Зареєструватися</button>
-            <button type="submit" class="view-btn"  (click)="signIn()">Увійти</button>
+            <button type="submit" class="view-btn" (click)="signIn()" (click)="modalRef.hide()">Увійти</button><br>
+            <span>Не маєш акаунту?</span>
+            <span class="text-danger" (click)="modalRef.hide()" (click)="signUpModal(signUpMod)">Зареєструватися</span>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #signUpMod>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Реєстрування</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="sign-form">
+            <div class="form-group">
+                <label for="userName">Ім'я:</label>
+                <input type="text" [(ngModel)]="userName" name="userName" id="userName" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="userEmail">Електронна пошта:</label>
+                <input type="email" [(ngModel)]="userEmail" name="userEmail" id="userEmail" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="userBirth">День народження:</label>
+                <input type="text" [(ngModel)]="userBirth" name="userBirth" id="userBirth" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="userPass">Пароль:</label>
+                <input type="password" [(ngModel)]="userPass" name="userPass" id="userPass" class="form-control">
+            </div>
+            <button type="submit" class="view-btn" (click)="modalRef.hide()" (click)="signUp()">Зареєструватися</button><br>
+            <span>Вже маєш акаунт?</span>
+            <span class="text-danger" (click)="modalRef.hide()" (click)="openProfile(signModal)">Увійти</span>
         </div>
     </div>
 </ng-template>

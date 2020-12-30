@@ -1,14 +1,14 @@
 <div class="modal-header">
-    <h4 class="modal-title pull-left">Add product</h4>
+    <h4 class="modal-title pull-left">Додати продукти</h4>
 </div>
 <div class="modal-body">
-    <div class="input-group mb-3">
-        <label for="description">Name</label>
-        <input type="text" [(ngModel)]="prodName" name="prodName" class="form-control" placeholder="name here..">
+    <div class="ащкь-group mb-3">
+        <label for="prodName">Name</label>
+        <input type="text" [(ngModel)]="prodName" name="prodName" id="prodName" class="form-control" placeholder="name here..">
     </div>
     <div class="form-group">
         <label for="description">Description</label>
-        <textarea [(ngModel)]="description" name="description" id="description" cols="100" rows="3"></textarea>
+        <textarea style="width:100%;" [(ngModel)]="description" name="description" id="description"  rows="3"></textarea>
     </div>
     <div class="form-group">
         <label for="price">Price</label>
@@ -32,7 +32,7 @@
         </div> -->
     </div>
     <button *ngIf="!editStatus" class="btn btn-dark" (click)="addAdminProduct()">Add</button>
-    <button *ngIf="editStatus" (click)="saveAdminProduct()" class="btn btn-light">Save edit</button>
+    <button *ngIf="editStatus" (click)="updateAdminProduct()" class="btn btn-light">Save edit</button>
 </div>
 
 <table class="table table-bordered">

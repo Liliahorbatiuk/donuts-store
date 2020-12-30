@@ -21,12 +21,22 @@ export class HomeComponent implements OnInit {
     AOS.init();
   }
 
+  // getProduct(): void {
+  //   this.prodService.getCountProduct(0,3).subscribe(
+  //     data => {
+  //       this.products = data;
+  //     }
+  //   )
+  // }
+
   getProduct(): void {
-    this.prodService.getCountProduct(0,3).subscribe(
-      data => {
-        this.products = data;
-      }
-    )
+    this.prodService.getLimitProduct(3).get().then(docSnap => {
+      docSnap.forEach(prod => {
+        const data = prod.data() as IProduct;
+        const id = prod.id;
+        this.products.push({ id, ...data });
+      })
+    })
   }
 
   countProduct(product: IProduct, status: boolean): void {
@@ -51,40 +61,6 @@ export class HomeComponent implements OnInit {
     return products.reduce((total, prod) => total + (prod.price * prod.count), 0);
   }
 
-
-  // slides = [
-  //   { 
-  //     name: 'Iryna',
-  //     date: new Date(),
-  //     grade: '★★★★',
-  //     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, nulla?'
-  //   },
-  // ];
-  // slideConfig = {"slidesToShow": 3, "slidesToScroll": 3};
-
-  // addSlide() {
-  //   this.slides.push()
-  // }
-  
-  // removeSlide() {
-  //   this.slides.length = this.slides.length - 1;
-  // }
-  
-  // slickInit(e) {
-  //   console.log('slick initialized');
-  // }
-  
-  // breakpoint(e) {
-  //   console.log('breakpoint');
-  // }
-  
-  // afterChange(e) {
-  //   console.log('afterChange');
-  // }
-  
-  // beforeChange(e) {
-  //   console.log('beforeChange');
-  // }
 }
 
 

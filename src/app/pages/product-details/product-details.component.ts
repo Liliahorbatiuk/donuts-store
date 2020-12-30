@@ -25,7 +25,9 @@ export class ProductDetailsComponent implements OnInit {
     const id = this.activatedRoute.snapshot.paramMap.get('id');    
     this.prodService.getOneProduct(id).subscribe(
       data => {
-        this.prod = data;
+        console.log(data.data());
+        
+        this.prod = data.data();
       },
       err => {
         console.log(err);
@@ -33,6 +35,7 @@ export class ProductDetailsComponent implements OnInit {
       }
     )
   }
+
 
   countProduct(product: IProduct, status: boolean): void {
     if (status) {

@@ -32,6 +32,7 @@
 
 .header-center .title-text{
     margin: 20px 0;
+    font-size: 20px;
 }
 
 .container-about {
@@ -105,11 +106,17 @@
     font-weight: bold;
 }
 
+.goods {
+    @include flex(flex, column nowrap, center, center);
+}
+
 .container-goods {
     width: 970px;
     @include flex(flex, row wrap, space-between, center);
     margin: 50px auto;
 }
+
+
 
 .goods-title {
     font-weight: bold;
@@ -315,7 +322,6 @@
     &__description {
         margin-top: -3rem;
         @include flex(flex, row wrap, space-between, center);
-        // text-align: justify;
     }
     &__name {
         width: 70%;
@@ -339,7 +345,7 @@
         @include flex(flex, column nowrap, center, center);
         width: 100%;
         text-align: center;
-        text-shadow: 7px 6px 20px #290331;
+        text-shadow: 7px 6px 20px #67043f9e;
     }
     
     .header-center .title {
@@ -420,6 +426,9 @@
         margin-left: 50px;
     }
 
+    .order-container {
+        width: 780px;
+    }
 }
 
 @media (max-width: 788px) {
@@ -440,8 +449,8 @@
     }
 
     .goods-card {
-        width: 40%;
-        margin: 10px 20px;
+        width: 90%;
+        margin: 15px auto;
     }
 
 
@@ -466,10 +475,26 @@
         width: 668px;
     }
 
+    .order-container {
+        width: 668px;
+        &__sweetbox {
+            width: 50%;
+        }
+        &__form {
+            width: 45%;
+            h3 {
+                font-size: 22px;
+            }
+        }
+    }
 
 }
 
 @media (max-width: 475px) {
+    .header-center {
+        height: 300px;
+    }
+    
     .container-about {
         width: 320px;
         height: 500px;
@@ -480,6 +505,7 @@
 
     .about-img {
         width: 100%;
+        background-size: cover;
     }
 
     .about-text {
@@ -542,6 +568,21 @@
         width: 320px;
         @include flex(flex, column nowrap, center, center);
         overflow: scroll;
+    }
+
+    .order-container {
+        width: 320px;
+        @include flex(flex, column nowrap, center, center);
+        &__sweetbox {
+            width: 100%;
+        }
+        &__form {
+            width: 95%;
+            text-align: center;
+            span {
+               margin: 10px 0;
+            }
+        }
     }
 
     .feedback-card {
