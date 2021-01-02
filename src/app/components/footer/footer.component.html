@@ -12,16 +12,16 @@
                     <a [routerLink]="[ '/about' ]">Про нас</a>
                 </li>
                 <li class="menu-item">
-                    <a href="#">Переваги</a>
+                    <a (click)="scrollToAdv()">Переваги</a>
                 </li>
                 <li class="menu-item">
                     <a [routerLink]="[ '/catalog' ]">Каталог</a>
                 </li>
                 <li class="menu-item">
-                    <a href="#">Відгуки</a>
+                    <a (click)="scrollToFeed()">Відгуки</a>
                 </li>
                 <li class="menu-item">
-                    <a href="#">Оплата і доставка</a>
+                    <a (click)="scrollToDel()">Оплата і доставка</a>
                 </li>
             </ul>
         </div>

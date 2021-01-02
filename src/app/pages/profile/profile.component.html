@@ -7,12 +7,19 @@
                 <span class="text-danger">Змінити фотографію</span>
             </div>
             <div class="account__list">
-                <span>Користувач</span>
-                <h5></h5>
-                <span>Телефон</span>
-                <h5>063 661 27 71</h5>
-                <span>Електронна скринька</span>
-                <h5>lilahorbatyk@gmail.com</h5>
+                <div class="form-group">
+                    <label for="userName">Ім'я користувача:</label>
+                    <input type="text" [(ngModel)]="userName" name="userName" id="userName" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="userTel">Номер телефону:</label>
+                    <input type="text" [(ngModel)]="userTel" name="userTel" id="userTel" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="userEmail">Електронна пошта:</label>
+                    <input type="email" [(ngModel)]="userEmail" name="userEmail" id="userEmail" class="form-control">
+                </div>
+                <button class="btn btn-primary btn-block" (click)="save()">Зберегти</button>
             </div>
             <div class="account__signout">
                 <button class="btn btn-danger btn-block" (click)="signOut()">Вийти</button>

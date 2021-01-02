@@ -11,16 +11,16 @@
                         <a class="nav__link" [routerLink]="[ '/about' ]">Про нас</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav__link" href="#advantages">Переваги</a>
+                        <a class="nav__link" (click)="scrollToAdv()">Переваги</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav__link" [routerLink]="[ '/catalog' ]">Каталог</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav__link" href="#feedback">Відгуки</a>
+                        <a class="nav__link" (click)="scrollToFeed()">Відгуки</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav__link" href="#delivery">Оплата і доставка</a>
+                        <a class="nav__link" (click)="scrollToDel()">Оплата і доставка</a>
                     </li>
                     <li class="nav-item tel">
                         <img src="/assets/images/phone.svg" alt="phone" style="height: 20px; width: 20px;">
@@ -68,8 +68,8 @@
     </div>
     <div class="modal-body">
         <div class="basket-product" *ngFor="let prod of basket; let i=index">
-            <div class="basket-product__order">
-                <img [src]="prod.image" alt="">
+            <div class="basket-product__order" >
+                <img [src]="prod.image" alt="" [routerLink]="[ '/catalog', prod.id ]">
                 <div class="basket-product__descrip">
                     <span>{{ prod.weight }} г</span>
                     <h4>{{ prod.name }}</h4>
@@ -88,7 +88,7 @@
         <hr>
         <div class="payment-order">
             <h5>До оплати: {{ totalPrice }} грн</h5>
-            <button class="view-btn">Оформити замовлення</button>
+            <button class="view-btn" [routerLink]="[ '/order']" (click)="modalRef.hide()">Оформити замовлення</button>
         </div>
 
     </div>
@@ -137,8 +137,8 @@
                 <input type="email" [(ngModel)]="userEmail" name="userEmail" id="userEmail" class="form-control">
             </div>
             <div class="form-group">
-                <label for="userBirth">День народження:</label>
-                <input type="text" [(ngModel)]="userBirth" name="userBirth" id="userBirth" class="form-control">
+                <label for="userTel">Номер телефону:</label>
+                <input type="text" [(ngModel)]="userTel" name="userTel" id="userTel" class="form-control">
             </div>
             <div class="form-group">
                 <label for="userPass">Пароль:</label>

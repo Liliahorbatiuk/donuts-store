@@ -70,7 +70,7 @@
                     <img [src]="prod?.image" alt="">
                 </div>
                 <div class="goods-card__title">
-                    <span class="don-name">{{ prod.name }}</span>
+                    <span class="don-name" [routerLink]="[ '/catalog', prod.id ]">{{ prod.name }}</span>
                     <span class="don-price">{{ prod.price * prod.count}} ₴</span>
                 </div>
                 <div class="goods-card__description">
@@ -83,7 +83,7 @@
                         <input class="product-qty" readonly maxlength="3" type="text" [value]="prod.count">
                         <span class="productCount moreProduct" (click)="countProduct(prod, true)">⊕</span>
                     </div>
-                    <button class="goods-card__btn" (click)="addToBasked(prod)" *ngIf="!addProdStatus">В корзину</button>
+                    <button class="goods-card__btn" (click)="addToBasked(prod)">В корзину</button>
                     <!-- <button class="goods-card__btn addProd" (click)="addToBasked(prod)" *ngIf="addProdStatus">Додано</button> -->
 
                 </div>

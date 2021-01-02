@@ -23,6 +23,8 @@ import { FormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { SlickCarouselModule } from 'ngx-slick-carousel'; 
+import { NgxUiLoaderModule, NgxUiLoaderRouterModule  } from "ngx-ui-loader";
+import { ngxUiLoaderConfig } from './preloader-config';
 
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment.prod';
@@ -32,6 +34,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { ProfileComponent } from './pages/profile/profile.component';
 import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
+import { OrderComponent } from './pages/order/order.component';
 
 
 @NgModule({
@@ -49,7 +52,8 @@ import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
     AdminProductComponent,
     ProductDetailsComponent,
     ProfileComponent,
-    AdminOrderComponent
+    AdminOrderComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +67,10 @@ import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule,
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
+    NgxUiLoaderRouterModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

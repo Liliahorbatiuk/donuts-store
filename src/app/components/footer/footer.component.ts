@@ -12,4 +12,16 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  scrollToAdv(): void {
+    document.getElementById('advantages').scrollIntoView({ behavior: "smooth" });
+  }
+
+  scrollToDel(): void {
+    document.getElementById('delivery').scrollIntoView({ behavior: "smooth" });
+  }
+
+  scrollToFeed(): void {
+    document.getElementById('feedback').scrollIntoView({ behavior: "smooth" });
+  }
+
 }

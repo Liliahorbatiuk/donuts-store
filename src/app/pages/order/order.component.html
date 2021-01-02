@@ -1,0 +1,56 @@
+<div class="order-body">
+    <h3 class="order-title text-center" style="font-weight: 600;">Оформлення замовлення</h3>
+    <div class="order-form">
+        <div class="form-group">
+            <label for="userName">Ім'я:</label>
+            <input type="text" [(ngModel)]="userName" name="userName" id="userName" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="userTel">Номер телефону:</label>
+            <input type="text" [(ngModel)]="userTel" name="userTel" id="userTel" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="userCity">Місто:</label>
+            <input type="text" [(ngModel)]="userCity" name="userCity" id="userCity" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="userStreet">Вулиця:</label>
+            <input type="text" [(ngModel)]="userStreet" name="userStreet" id="userStreet" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="userHouse">Будинок:</label>
+            <input type="text" [(ngModel)]="userHouse" name="userHouse" id="userHouse" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="userFlat">Квартира:</label>
+            <input type="text" [(ngModel)]="userFlat" name="userFlat" id="userFlat" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="userComments">Коментар:</label>
+            <textarea [(ngModel)]="userComments" name="userComments" id="userComments" style="width: 100%;"></textarea>
+        </div>
+        <button type="submit" class="view-btn" (click)="addOrder()">Оформити замовлення</button>
+
+    </div>
+
+    <div class="user-order">
+        <div class="basket-product" *ngFor="let prod of orders">
+            <div class="basket-product__order">
+                <img [src]="prod.image" alt="">
+                <div class="basket-product__descrip">
+                    <span>{{ prod.weight }} г</span>
+                    <h4>{{ prod.name }}</h4>
+                </div>
+            </div>
+            <div class="basket-product__price">
+                <span class="close" (click)="removeProduct(prod)">x</span>
+                <div class="don-counter">
+                    <span class="productCount lessProduct" (click)="countProduct(prod, false)">⊖</span>
+                    <input class="product-qty" maxlength="3" type="text" [value]="prod.count">
+                    <span class="productCount moreProduct" (click)="countProduct(prod, true)">⊕</span>
+                </div>
+                <span>{{ prod.price * prod.count}} грн</span>
+            </div>
+        </div>
+    </div>
+</div>

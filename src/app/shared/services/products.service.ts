@@ -21,7 +21,7 @@ export class ProductsService {
   ]
 
   private url: string;
-  private dbPath = 'products';
+  private dbPath = '/products';
   productsRef: AngularFirestoreCollection<IProduct> = null;
 
   constructor(private http: HttpClient,
@@ -65,9 +65,9 @@ export class ProductsService {
   //   this.arrProd.push(newP);
   // }
 
-  getProducts(): Observable<Array<IProduct>> {
-    return this.http.get<Array<IProduct>>(this.url);
-  } 
+  // getProducts(): Observable<Array<IProduct>> {
+  //   return this.http.get<Array<IProduct>>(this.url);
+  // } 
 
   // postProduct(product: IProduct): Observable<IProduct> {
   //   console.log(product );

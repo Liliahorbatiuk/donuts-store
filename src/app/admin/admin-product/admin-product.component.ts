@@ -115,6 +115,7 @@ export class AdminProductComponent implements OnInit {
 
   updateAdminProduct(): void {
     const currentProd = new Product(this.prodID, this.prodName, this.description, this.weight, this.price, this.prodImage);
+    // delete currentProd.id;
     this.prodService.update(currentProd.id.toString(), currentProd)
       .then(() => console.log('The product was updated successfully!'))
         .catch(err => console.log(err));
@@ -128,5 +129,8 @@ export class AdminProductComponent implements OnInit {
       .catch(err => console.log(err));
   }
 
+  scrollToEdit(): void {
+    document.getElementById('editForm').scrollIntoView({ behavior: "smooth" });
+  }
 
 }

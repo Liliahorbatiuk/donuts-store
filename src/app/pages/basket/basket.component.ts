@@ -8,26 +8,26 @@ import { OrderService } from 'src/app/shared/services/order.service';
   styleUrls: ['./basket.component.scss']
 })
 export class BasketComponent implements OnInit {
-  basket: Array<IProduct> = [];
-  totalPrice = 0;
+  // basket: Array<IProduct> = [];
+  // totalPrice = 0;
 
 
   constructor(private orderService: OrderService) { }
 
   ngOnInit(): void {
-    this.getLocalProducts();
+    // this.getLocalProducts();
   }
 
-  private getLocalProducts(): void {
-    if (localStorage.getItem('basket')){
-      this.basket = JSON.parse(localStorage.getItem('basket'));
-      this.totalPrice = this.getTotal(this.basket);
-    }
-    console.log(this.basket);
-  }
+  // private getLocalProducts(): void {
+  //   if (localStorage.getItem('basket')){
+  //     this.basket = JSON.parse(localStorage.getItem('basket'));
+  //     this.totalPrice = this.getTotal(this.basket);
+  //   }
+  //   console.log(this.basket);
+  // }
 
-  private getTotal(products: Array<IProduct>): number {
-    return products.reduce((total, prod) => total + (prod.price * prod.count), 0);
-  }
+  // private getTotal(products: Array<IProduct>): number {
+  //   return products.reduce((total, prod) => total + (prod.price * prod.count), 0);
+  // }
 
 }

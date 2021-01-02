@@ -26,4 +26,10 @@
             box-shadow: 0 0 20px 0px #be93c1;
         }
     }
+    &__list {
+        .form-group input {
+            border: none;
+            border-bottom: 1px solid black;
+        }
+    }
 }

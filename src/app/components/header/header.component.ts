@@ -3,6 +3,8 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { IProduct } from 'src/app/shared/interfaces/product.interface';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { OrderService } from 'src/app/shared/services/order.service';
+import { ProductsService } from 'src/app/shared/services/products.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -13,10 +15,11 @@ export class HeaderComponent implements OnInit {
   modalRef: BsModalRef;
   active: boolean = false;
   basket: Array<IProduct> = [];
+  prod: IProduct;
   totalPrice = 0;
   userName: string;
   userEmail: string;
-  userBirth: string;
+  userTel: string;
   userPass: string;
   isLogin = false;
 
@@ -35,7 +38,7 @@ export class HeaderComponent implements OnInit {
   openBasket(template: TemplateRef<any>): void {
     this.modalRef = this.modalService.show(
       template,
-      Object.assign({}, { class: 'gray modal-lg' })
+      Object.assign({}, { class: 'modal-lg' })
     );
   }
 
@@ -125,5 +128,17 @@ export class HeaderComponent implements OnInit {
 
   signUpModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
+  }
+
+  scrollToAdv(): void {
+    document.getElementById('advantages').scrollIntoView({ behavior: "smooth" });
+  }
+
+  scrollToDel(): void {
+    document.getElementById('delivery').scrollIntoView({ behavior: "smooth" });
+  }
+  
+  scrollToFeed(): void {
+    document.getElementById('feedback').scrollIntoView({ behavior: "smooth" });
   }
 }
