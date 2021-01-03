@@ -4,10 +4,12 @@
 .history {
     width: 970px;
     margin: 80px auto;
+    font-family: $ff;
+    font-size: 18px;
     @include flex (flex, column nowrap, space-between, center);
     &__title {
-        font-family: $ff;
-        text-align: center
+        text-align: center;
+        font-weight: bold;
     }
     &__video {
         width: 100%;
@@ -33,6 +35,7 @@
         p {
             width: 50%;
             text-align: justify;
+
         }
         
     }
