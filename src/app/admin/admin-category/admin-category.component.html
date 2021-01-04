@@ -1,0 +1,30 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Додати продукти</h4>
+</div>
+<div class="modal-body" id="editForm">
+    <div class="form-group">
+        <label for="nameCat">Name</label>
+        <input type="text" [(ngModel)]="nameCat" name="nameCat" id="nameCat" class="form-control" placeholder="name here..">
+    </div>
+    <button class="btn btn-dark" (click)="addAdminCategory()">Add</button>
+    <button *ngIf="editStatus" (click)="updateAdminCategory()" class="btn btn-light">Save edit</button>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr class="table-active">
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cat of adminCategories; let i=index">
+            <td>{{ i+1 }}</td>
+            <td>{{ cat.name }}</td>
+            <td><button *ngIf="!editStatus" (click)="editAdminCategory(cat)" class="btn btn-dark">Edit</button></td>
+            <td><button (click)="deleteAdminCategory(cat)" class="btn btn-dark">Delete</button></td>
+        </tr>
+    </tbody>
+</table>

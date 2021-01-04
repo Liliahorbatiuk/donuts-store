@@ -36,6 +36,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
 import { OrderComponent } from './pages/order/order.component';
 import { AuthAdminComponent } from './auth-admin/auth-admin.component';
+import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { AuthAdminComponent } from './auth-admin/auth-admin.component';
     ProfileComponent,
     AdminOrderComponent,
     OrderComponent,
-    AuthAdminComponent
+    AuthAdminComponent,
+    AdminCategoryComponent
   ],
   imports: [
     BrowserModule,

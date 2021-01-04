@@ -1,5 +1,5 @@
+<h3 class="order-title text-center" style="font-weight: 600;">Оформлення замовлення</h3>
 <div class="order-body">
-    <h3 class="order-title text-center" style="font-weight: 600;">Оформлення замовлення</h3>
     <div class="order-form">
         <div class="form-group">
             <label for="userName">Ім'я:</label>
@@ -33,8 +33,8 @@
 
     </div>
 
-    <div class="user-order">
-        <div class="basket-product" *ngFor="let prod of orders">
+    <div class="user-order" >
+        <div class="basket-product" *ngFor="let prod of basket">
             <div class="basket-product__order">
                 <img [src]="prod.image" alt="">
                 <div class="basket-product__descrip">

@@ -14,7 +14,8 @@ export class HomeComponent implements OnInit {
   products: Array<IProduct> = [];
   basket: Array<IProduct> = [];
   totalPrice = 0;
-  constructor(private orderService: OrderService, private prodService: ProductsService) { }
+  constructor(private orderService: OrderService, 
+              private prodService: ProductsService) { }
 
   ngOnInit(): void {
     this.getProduct();

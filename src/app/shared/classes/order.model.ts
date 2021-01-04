@@ -10,9 +10,9 @@ export class Order implements IOrder {
         public city: string,
         public street: string,
         public house: string,
-        public flat: string,
         public totalPrice: number,
-        public comments: string,
+        public flat?: string,
+        public comments?: string,
     ){
         this.date =  new Date();
     }

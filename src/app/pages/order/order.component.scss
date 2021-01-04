@@ -14,6 +14,8 @@
     @include flex (flex, row wrap, space-between, center)
 }
 
+
+
 .form-group {
     width: 40%;
 }
@@ -39,6 +41,7 @@
     border-radius: 50px;
     display: inline-block;
     color: #fff;
+    outline: none;
     background-image: linear-gradient(to right top, #f4bef4, #f2a1ef, #f081e9, #ee5ce2, #eb21d9);
 }
 
@@ -47,7 +50,7 @@
 }
 
 .user-order{
-    width: 50%;
+    width: 40%;
 }
 
 .basket-product {

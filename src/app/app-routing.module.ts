@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
 import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 import { AdminComponent } from './admin/admin.component';
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent, canActivate: [ AdminGuard ], children: [
     { path: '', pathMatch: 'full', redirectTo: 'product'},
     { path: 'product', component: AdminProductComponent },
+    { path: 'category', component: AdminCategoryComponent },
     { path: 'order', component: AdminOrderComponent },
   ]},
   { path: '**', redirectTo: '404' }, 

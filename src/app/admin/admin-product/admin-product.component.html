@@ -3,12 +3,22 @@
 </div>
 <div class="modal-body" id="editForm">
     <div class="form-group">
+        <label for="chooseCategory">Category: </label>
+        <select (change)="setCategory()" [(ngModel)]="categoryName" name="categoryName" class="form-control"
+            id="chooseCategory">
+            <option *ngFor="let cat of categories">
+                {{ cat.name }}
+            </option>
+        </select>
+    </div>
+    <div class="form-group">
         <label for="prodName">Name</label>
-        <input type="text" [(ngModel)]="prodName" name="prodName" id="prodName" class="form-control" placeholder="name here..">
+        <input type="text" [(ngModel)]="prodName" name="prodName" id="prodName" class="form-control"
+            placeholder="name here..">
     </div>
     <div class="form-group">
         <label for="description">Description</label>
-        <textarea style="width:100%;" [(ngModel)]="description" name="description" id="description"  rows="3"></textarea>
+        <textarea style="width:100%;" [(ngModel)]="description" name="description" id="description" rows="3"></textarea>
     </div>
     <div class="form-group">
         <label for="price">Price</label>
@@ -56,7 +66,8 @@
             <td>{{ prod.price }}</td>
             <td>{{ prod.weight }}</td>
             <td>{{ prod.image }}</td>
-            <td><button (click)="editAdminProduct(prod)" (click)="scrollToEdit()" class="btn btn-dark">Edit</button></td>
+            <td><button (click)="editAdminProduct(prod)" (click)="scrollToEdit()" class="btn btn-dark">Edit</button>
+            </td>
             <td><button (click)="deleteAdminProduct(prod)" class="btn btn-dark">Delete</button></td>
         </tr>
     </tbody>

@@ -1,9 +1,18 @@
 <section class="goods">
     <h3 class="goods-title">Каталог</h3>
     <div class="wrapper">
-        <div class="nav-filter">
+        <!-- <div class="nav-filter">
             <accordion [isAnimated]="true">
+                <accordion-group heading="Усі">
+                    <div class="menu__product">
+                        <input type="checkbox" class="custom-control-input" id="without">
+                        <button class="product" (click)="getProducts()">All Product</button>
+                    </div>
+                </accordion-group>
                 <accordion-group heading="Начинка">
+                        <div *ngFor="let cat of allCategory">
+                            <button class="product" [value]="cat.name" >{{ cat.name }}</button>
+                        </div>
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="without">
                         <label class="custom-control-label" for="without">Без начинки</label>
@@ -62,10 +71,10 @@
                     </div>
                 </accordion-group>
             </accordion>
-        </div>
+        </div> -->
 
         <div class="container-goods">
-            <div class="goods-card" *ngFor="let prod of products" >
+            <div class="goods-card" *ngFor="let prod of products">
                 <div class="goods-card__img" [routerLink]="[ '/catalog', prod.id ]">
                     <img [src]="prod?.image" alt="">
                 </div>
@@ -75,7 +84,7 @@
                 </div>
                 <div class="goods-card__description">
                     <span>{{ prod.weight }}г</span>
-                    <p>{{ prod.description | slice:0:50 }}...</p> 
+                    <p>{{ prod.description | slice:0:50 }}...</p>
                 </div>
                 <div class="goods-card__product-сounter">
                     <div class="don-counter">

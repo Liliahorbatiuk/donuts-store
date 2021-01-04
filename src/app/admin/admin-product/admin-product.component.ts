@@ -5,6 +5,8 @@ import { ProductsService } from 'src/app/shared/services/products.service';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ICategory } from 'src/app/shared/interfaces/category.interface';
+import { CategoriesService } from 'src/app/shared/services/categories.service';
 
 
 @Component({
@@ -13,6 +15,11 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./admin-product.component.scss']
 })
 export class AdminProductComponent implements OnInit {
+  categories: Array<ICategory> = [];
+  currentCategory: ICategory;
+  adminCategories: Array<ICategory> = [];
+  categoryName: string;
+  productCategory: string;
   adminProd: Array<IProduct> = [];
   prodID: string;
   prodName: string;
@@ -25,21 +32,34 @@ export class AdminProductComponent implements OnInit {
   uploadPercent: Observable<number>;
 
   constructor(private prodService: ProductsService,
-    private storage: AngularFireStorage) { }
+              private catService: CategoriesService,
+              private storage: AngularFireStorage) { }
 
   ngOnInit(): void {
+    this.getCategories();
     this.getAdminProducts();
   }
 
+  private getCategories(): void {
+    this.catService.getAll().snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({ id: c.payload.doc.id, ...c.payload.doc.data() })
+        )
+      )
+    ).subscribe(data => {
+      this.categories = data;
+    });
+  }
+
+  setCategory(): void {
+    this.currentCategory = this.adminCategories.filter(category =>
+      category.name === this.productCategory)[0];
+    console.log(this.currentCategory.name.toLowerCase());
+    // this.checkCategory();
+  }
+
   getAdminProducts(): void {
-    // this.prodService.getProducts().subscribe(
-    //   data => {
-    //     this.adminProd = data;
-    //   },
-    //   err => {
-    //     console.log(err);
-    //   }
-    // )
     this.prodService.getAll().snapshotChanges().pipe(
       map(changes =>
         changes.map(c =>
@@ -54,22 +74,12 @@ export class AdminProductComponent implements OnInit {
 
   addAdminProduct(): void {
     const newP = new Product(1, this.prodName, this.description, this.weight, this.price, this.prodImage);
-    // console.log(newP);
     delete newP.id;
-    // this.prodService.postProduct(newP).subscribe(() => {
-    //   this.getAdminProducts()
-    // })
     this.prodService.create(newP).then(() => {
       console.log('Created new item successfully!');
     })
     this.resetForm();
   }
-
-  // deleteAdminProduct(product: IProduct): void {
-  //   this.prodService.deleteProduct(product).subscribe(() => {
-  //     this.getAdminProducts();
-  //   })
-  // }
 
   editAdminProduct(product: IProduct): void {
     this.prodID = product.id.toString();
@@ -80,15 +90,6 @@ export class AdminProductComponent implements OnInit {
     this.prodImage = product.image;
     this.editStatus = true;
   }
-
-  // saveAdminProduct(): void {
-  //   const updP = new Product(1, this.prodName, this.description, this.weight, this.price, this.prodImage);
-  //   this.prodService.updateProduct(updP).subscribe(() => {
-  //     this.getAdminProducts()
-  //   })
-  //   this.resetForm();
-  //   this.editStatus = false;
-  // }
 
   private resetForm(): void {
     this.prodName = '';
@@ -125,7 +126,7 @@ export class AdminProductComponent implements OnInit {
 
   deleteAdminProduct(product: IProduct): void {
     this.prodService.delete(product.id.toString())
-    .then(() => console.log('The product was updated successfully!'))
+    .then(() => console.log('The product was delete successfully!'))
       .catch(err => console.log(err));
   }
 

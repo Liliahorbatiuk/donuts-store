@@ -14,7 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 export class HeaderComponent implements OnInit {
   modalRef: BsModalRef;
   active: boolean = false;
-  basket: Array<IProduct> = [];
+  basket: Array<IProduct>;
   prod: IProduct;
   totalPrice = 0;
   userName: string;

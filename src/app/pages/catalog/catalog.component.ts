@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { ICategory } from 'src/app/shared/interfaces/category.interface';
 import { IProduct } from 'src/app/shared/interfaces/product.interface';
+import { CategoriesService } from 'src/app/shared/services/categories.service';
 import { OrderService } from 'src/app/shared/services/order.service';
 import { ProductsService } from 'src/app/shared/services/products.service';
 
@@ -12,15 +14,19 @@ import { ProductsService } from 'src/app/shared/services/products.service';
 
 export class CatalogComponent implements OnInit {
   products: Array<IProduct> = []; 
+  allCategory: Array<ICategory> = [];
+  cat: string = '';
 
   constructor(private prodService: ProductsService,
-              private orderService: OrderService) { }
+              private orderService: OrderService,
+              private catService: CategoriesService
+              ) { }
 
   ngOnInit(): void {
-    this.getProduct();
+    this.getProducts();
   }
 
-  getProduct(): void {
+  getProducts(): void {
     this.prodService.getAll().snapshotChanges().pipe(
       map(changes =>
         changes.map(c =>
@@ -48,5 +54,18 @@ export class CatalogComponent implements OnInit {
     console.log(product);
     this.orderService.addBasked(product);
     product.count = 1;
+  }
+
+  onCheckCategory(event): void {
+    this.cat = event.target.value;
+    this.prodService.getAll().snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({ id: c.payload.doc.id, ...c.payload.doc.data() })
+        )
+      )
+    ).subscribe(data => {
+      this.cat = '';
+    });
   }
 }
