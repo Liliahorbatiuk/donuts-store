@@ -68,6 +68,13 @@
     width: 100px;
 }
 
+.headerSection .profileImg {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    outline: none;
+}
+
 
 @media (max-width: 1100px) {
     .nav {
@@ -121,14 +128,22 @@
             .header-cart a {
                 visibility: hidden;
             }
+            .header-cart {
+                color: #fff;
+                cursor: pointer;
+                width: 30px;
+                height: 30px;
+            }
+            .profileImg {
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+            }
         }
     }
-    .header-cart {
-        color: #fff;
-        cursor: pointer;
-        width: 30px;
-        height: 30px;
-    }
+    
+
+    
 }
 
 .nav-right a {
@@ -143,13 +158,6 @@
     color: #fff;
     margin-right: 10px;
 }
-
-.headerSection .profileImg {
-    width: 20px !important;
-    height: 20px !important;
-    margin-right: 10px;
-}
-
 
 .headerSection span {
     color: #fff;

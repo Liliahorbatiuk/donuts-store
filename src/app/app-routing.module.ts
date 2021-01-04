@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 import { AdminComponent } from './admin/admin.component';
+import { AuthAdminComponent } from './auth-admin/auth-admin.component';
 import { AboutComponent } from './pages/about/about.component';
 import { BasketComponent } from './pages/basket/basket.component';
 import { CatalogComponent } from './pages/catalog/catalog.component';
@@ -12,7 +13,9 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { OrderComponent } from './pages/order/order.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { AdminGuard } from './shared/guards/admin.guard';
 import { ProfileGuard } from './shared/guards/profile.guard';
+import { AuthAdminService } from './shared/services/auth-admin.service';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -23,12 +26,15 @@ const routes: Routes = [
   { path: 'create', component: CreateComponent },
   { path: 'order', component: OrderComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [ProfileGuard] },
-  { path: 'admin', component: AdminComponent, children: [
+  { path: 'admin-login', component: AuthAdminComponent },
+  { path: 'admin', component: AdminComponent, canActivate: [ AdminGuard ], children: [
     { path: '', pathMatch: 'full', redirectTo: 'product'},
     { path: 'product', component: AdminProductComponent },
     { path: 'order', component: AdminOrderComponent },
   ]},
-  { path: '**', component: NotFoundComponent }, 
+  { path: '**', redirectTo: '404' }, 
+  { path: '404', component: NotFoundComponent }, 
+
 ];
 
 @NgModule({

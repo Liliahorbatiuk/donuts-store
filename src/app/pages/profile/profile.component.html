@@ -1,10 +1,11 @@
 <div class="profile-container">
-    <h2 class="profile-title text-center">Особистий кабінет</h2>
     <div class="account">
         <div class="account__info">
+            <h2 class="profile-title text-center" >Особистий кабінет</h2>
             <div class="account__avatar">
-                <img src="" alt="">
-                <span class="text-danger">Змінити фотографію</span>
+                <img [attr.src]="userImage" alt="">
+                <label for="file-input" class="text-danger changeImg">Змінити фотографію</label>
+                <input type="file" id="file-input" (change)="uploadFile($event)">
             </div>
             <div class="account__list">
                 <div class="form-group">
@@ -15,11 +16,12 @@
                     <label for="userTel">Номер телефону:</label>
                     <input type="text" [(ngModel)]="userTel" name="userTel" id="userTel" class="form-control">
                 </div>
-                <div class="form-group">
-                    <label for="userEmail">Електронна пошта:</label>
-                    <input type="email" [(ngModel)]="userEmail" name="userEmail" id="userEmail" class="form-control">
+                <div class="form-group validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                    <label for="email">Електронна пошта:</label>
+                    <input type="email" [(ngModel)]="email" name="email" id="email" class="form-control">
                 </div>
-                <button class="btn btn-primary btn-block" (click)="save()">Зберегти</button>
+                <button class="btn btn-success btn-block mb-2" (click)="save()" *ngIf="saveStatus">Зберегти</button>
+                <button class="btn btn-primary btn-block mb-3" (click)="update()" *ngIf="!saveStatus">Редагувати</button>
             </div>
             <div class="account__signout">
                 <button class="btn btn-danger btn-block" (click)="signOut()">Вийти</button>

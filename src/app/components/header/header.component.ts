@@ -95,13 +95,15 @@ export class HeaderComponent implements OnInit {
   signUp(): void {
     if (this.userEmail && this.userPass) {
       this.authService.signUp(this.userEmail, this.userPass);
-    }
+    };
+    this.resetForm()
   }
 
   signIn(): void {
     if (this.userEmail && this.userPass) {
       this.authService.signIn(this.userEmail, this.userPass);
     }
+    this.resetForm()
   }
 
   signOut(): void {
@@ -140,5 +142,12 @@ export class HeaderComponent implements OnInit {
   
   scrollToFeed(): void {
     document.getElementById('feedback').scrollIntoView({ behavior: "smooth" });
+  }
+
+  private resetForm(): void {
+    this.userName = '';
+    this.userEmail = '';
+    this.userTel = '';
+    this.userPass = ''
   }
 }

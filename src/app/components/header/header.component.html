@@ -36,8 +36,8 @@
             </div>
             <div class="nav__right">
                 <div class="headerSection header-cart">
-                    <img class="profileImg" src="/assets/images/user.svg" alt="profile" *ngIf="!isLogin" style="width: 40px; height: 40px;" (click)="openProfile(signModal)">
-                    <img class="profileImg" src="/assets/images/profile.svg" alt="profile" *ngIf="isLogin" style="width: 40px; height: 40px; outline: none;" [routerLink]="[ '/profile' ]">
+                    <img class="profileImg" src="/assets/images/user.svg" alt="profile" *ngIf="!isLogin" (click)="openProfile(signModal)">
+                    <img class="profileImg" src="/assets/images/profile.svg" alt="profile" *ngIf="isLogin" [routerLink]="[ '/profile' ]">
 
                 </div>
                 <div class="headerSection header-cart">

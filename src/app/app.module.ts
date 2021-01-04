@@ -35,6 +35,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
 import { OrderComponent } from './pages/order/order.component';
+import { AuthAdminComponent } from './auth-admin/auth-admin.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { OrderComponent } from './pages/order/order.component';
     ProductDetailsComponent,
     ProfileComponent,
     AdminOrderComponent,
-    OrderComponent
+    OrderComponent,
+    AuthAdminComponent
   ],
   imports: [
     BrowserModule,
