@@ -1,0 +1,23 @@
+.title {
+    text-align: center;
+    font-family: cursive;
+}
+.container {
+    width: 970px;
+    margin: 20px auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+.admin-order {
+    width: 30%;
+    border-radius: 15px;
+    padding: 25px;
+    margin: 10px 15px;
+    box-shadow: 0 0 20px 0px #be93c1;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}

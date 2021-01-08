@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
+import { AdminFeedbackComponent } from './admin/admin-feedback/admin-feedback.component';
 import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 import { AdminComponent } from './admin/admin.component';
@@ -33,6 +34,8 @@ const routes: Routes = [
     { path: 'product', component: AdminProductComponent },
     { path: 'category', component: AdminCategoryComponent },
     { path: 'order', component: AdminOrderComponent },
+    { path: 'feedback', component: AdminFeedbackComponent },
+
   ]},
   { path: '**', redirectTo: '404' }, 
   { path: '404', component: NotFoundComponent }, 

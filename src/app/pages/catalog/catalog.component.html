@@ -72,9 +72,11 @@
                 </accordion-group>
             </accordion>
         </div> -->
-
         <div class="container-goods">
-            <div class="goods-card" *ngFor="let prod of products">
+            <div class="search">
+                <input type="text" class="form-control" [(ngModel)]="search" name="search" placeholder="search donut">
+            </div>
+            <div class="goods-card" *ngFor="let prod of products | search: search">
                 <div class="goods-card__img" [routerLink]="[ '/catalog', prod.id ]">
                     <img [src]="prod?.image" alt="">
                 </div>

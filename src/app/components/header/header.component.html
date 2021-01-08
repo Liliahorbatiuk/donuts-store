@@ -17,10 +17,10 @@
                         <a class="nav__link" [routerLink]="[ '/catalog' ]">Каталог</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav__link" (click)="scrollToFeed()">Відгуки</a>
+                        <a class="nav__link" (click)="scrollToDel()">Оплата і доставка</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav__link" (click)="scrollToDel()">Оплата і доставка</a>
+                        <a class="nav__link" (click)="scrollToFeed()">Відгуки</a>
                     </li>
                     <li class="nav-item tel">
                         <img src="/assets/images/phone.svg" alt="phone" style="height: 20px; width: 20px;">
@@ -115,7 +115,7 @@
 
 <ng-template #signUpMod>
     <div class="modal-header">
-        <h4 class="modal-title pull-left">Реєстрування</h4>
+        <h4 class="modal-title pull-left">Реєстрація</h4>
         <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
             <span aria-hidden="true">&times;</span>
         </button>

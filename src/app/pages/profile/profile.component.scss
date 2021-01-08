@@ -25,8 +25,8 @@
         }
     }
     &__avatar {
-        width: 160px;
-        height: 160px;
+        width: 130px;
+        height: 130px;
         margin: 40px auto;
         @include flex (flex, column nowrap, center, center);
         img {
@@ -34,6 +34,9 @@
             height: 100%;
             border-radius: 50%;
             box-shadow: 0 0 20px 0px #be93c1;
+        }
+        #file-input {
+            border: none;
         }
     }
     &__list {

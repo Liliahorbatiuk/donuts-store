@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Order } from 'src/app/shared/classes/order.model';
 import { IProduct } from 'src/app/shared/interfaces/product.interface';
 import { IProfile } from 'src/app/shared/interfaces/profile.interface';
@@ -12,18 +12,24 @@ import { OrderService } from 'src/app/shared/services/order.service';
 })
 export class OrderComponent implements OnInit {
   basket: Array<IProduct>;
-  userName: string;
+  name: IProfile;
+  userName = '';
   userTel: string;
   userCity: string;
   userStreet: string;
   userHouse: string;
-  userFlat: string;
-  userComments: string;
+  userFlat: string = '';
+  userComments: string = '';
+  box: boolean = false;
   totalPayment: string;
   prod: IProduct;
   totalPrice = 0;
+  modalRef: BsModalRef;
 
-  constructor(private orderService: OrderService) { }
+  isInvalid = false;
+
+  constructor(private orderService: OrderService,
+    private modalService: BsModalService) { }
 
   ngOnInit(): void {
     this.getLocalProducts();
@@ -31,12 +37,10 @@ export class OrderComponent implements OnInit {
   }
 
   private getLocalProducts(): void {
-    if (localStorage.getItem('basket')){
+    if (localStorage.getItem('basket')) {
       this.basket = JSON.parse(localStorage.getItem('basket'));
       this.totalPrice = this.getTotal(this.basket);
     }
-    console.log(this.basket);
-    
   }
 
   private checkBasket(): void {
@@ -53,15 +57,17 @@ export class OrderComponent implements OnInit {
 
   countProduct(product: IProduct, status: boolean): void {
     if (status) {
-      product.count++
+      product.count++;
     }
     else {
       if (product.count > 1) {
-        product.count--
+        product.count--;
       }
     }
     this.totalPrice = this.getTotal(this.basket);
     localStorage.setItem('basket', JSON.stringify(this.basket))
+    this.orderService.basket.next([product])
+
   }
 
   removeProduct(product: IProduct): void {
@@ -72,18 +78,24 @@ export class OrderComponent implements OnInit {
   }
 
   addOrder(): void {
-    const order = new Order(this.basket, this.userName, this.userTel, this.userCity, this.userStreet, 
-    this.userHouse, this.totalPrice, this.userFlat,  this.userComments);
-    console.log(this.basket);
-    this.orderService.create(order).then(      
-      () => {
-        this.basket = [];
-        localStorage.removeItem('basket');
-        this.orderService.basket.next();
-      }
-    )
-    this.resetForm();
+    if (this.userName && this.userTel && this.userCity && this.userStreet && this.userHouse && this.totalPrice > 100) {
+      const order = new Order(this.basket, this.userName, this.userTel, this.userCity, this.userStreet,
+        this.userHouse, this.totalPrice, this.userFlat, this.userComments, this.box);
+      console.log(this.userName);
+      this.orderService.create(order).then(
+        () => {
+          this.basket = [];
+          localStorage.removeItem('basket');
+          this.orderService.basket.next();
+        }
+      )
+      this.totalPrice = 0;
+      this.resetForm();
+    }
+
   }
+
+
 
   checkUserLogin(): void {
     const user: IProfile = JSON.parse(localStorage.getItem('user'));
@@ -102,6 +114,11 @@ export class OrderComponent implements OnInit {
     this.userHouse = '';
     this.userFlat = '';
     this.userComments = '';
+    this.box = false;
+  }
+
+  openOrderModal(template: TemplateRef<any>): void {
+    this.modalRef = this.modalService.show(template);
   }
 
 }

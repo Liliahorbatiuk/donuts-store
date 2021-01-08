@@ -13,6 +13,7 @@ export class Order implements IOrder {
         public totalPrice: number,
         public flat?: string,
         public comments?: string,
+        public box?: boolean,
     ){
         this.date =  new Date();
     }

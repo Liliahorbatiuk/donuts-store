@@ -10,5 +10,6 @@ export interface IOrder {
     flat?: string;
     totalPrice: number;
     comments?: string
+    box?: boolean;
     date: Date;
 }

@@ -30,6 +30,7 @@ export class AuthService {
         console.log(userResponse);
         const user = {
           email: userResponse.user.email,
+          phone: userResponse.user.phoneNumber,
           role: 'user'
         };
         // const user = new Profile(userResponse.user.email)

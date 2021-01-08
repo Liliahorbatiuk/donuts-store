@@ -15,11 +15,11 @@ import { CategoriesService } from 'src/app/shared/services/categories.service';
   styleUrls: ['./admin-product.component.scss']
 })
 export class AdminProductComponent implements OnInit {
-  categories: Array<ICategory> = [];
-  currentCategory: ICategory;
-  adminCategories: Array<ICategory> = [];
-  categoryName: string;
-  productCategory: string;
+  // categories: Array<ICategory> = [];
+  // currentCategory: ICategory;
+  // adminCategories: Array<ICategory> = [];
+  // categoryName: string;
+  // productCategory: string;
   adminProd: Array<IProduct> = [];
   prodID: string;
   prodName: string;
@@ -32,32 +32,30 @@ export class AdminProductComponent implements OnInit {
   uploadPercent: Observable<number>;
 
   constructor(private prodService: ProductsService,
-              private catService: CategoriesService,
               private storage: AngularFireStorage) { }
 
   ngOnInit(): void {
-    this.getCategories();
     this.getAdminProducts();
   }
 
-  private getCategories(): void {
-    this.catService.getAll().snapshotChanges().pipe(
-      map(changes =>
-        changes.map(c =>
-          ({ id: c.payload.doc.id, ...c.payload.doc.data() })
-        )
-      )
-    ).subscribe(data => {
-      this.categories = data;
-    });
-  }
+  // private getCategories(): void {
+  //   this.catService.getAll().snapshotChanges().pipe(
+  //     map(changes =>
+  //       changes.map(c =>
+  //         ({ id: c.payload.doc.id, ...c.payload.doc.data() })
+  //       )
+  //     )
+  //   ).subscribe(data => {
+  //     this.categories = data;
+  //   });
+  // }
 
-  setCategory(): void {
-    this.currentCategory = this.adminCategories.filter(category =>
-      category.name === this.productCategory)[0];
-    console.log(this.currentCategory.name.toLowerCase());
-    // this.checkCategory();
-  }
+  // setCategory(): void {
+  //   this.currentCategory = this.adminCategories.filter(category =>
+  //     category.name === this.productCategory)[0];
+  //   console.log(this.currentCategory.name.toLowerCase());
+  //   // this.checkCategory();
+  // }
 
   getAdminProducts(): void {
     this.prodService.getAll().snapshotChanges().pipe(

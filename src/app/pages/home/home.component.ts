@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import AOS from "aos";
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { IFeedback } from 'src/app/shared/interfaces/feedback.interface';
+import { IOrder } from 'src/app/shared/interfaces/order.interface';
 import { IProduct } from 'src/app/shared/interfaces/product.interface';
+import { FeedbackService } from 'src/app/shared/services/feedback.service';
 import { OrderService } from 'src/app/shared/services/order.service';
 import { ProductsService } from 'src/app/shared/services/products.service';
 
@@ -14,21 +17,19 @@ export class HomeComponent implements OnInit {
   products: Array<IProduct> = [];
   basket: Array<IProduct> = [];
   totalPrice = 0;
-  constructor(private orderService: OrderService, 
-              private prodService: ProductsService) { }
+  feedback: Array<IFeedback> = [];
+  userName: string;
+  userPhone: string;
+
+  constructor(private orderService: OrderService,
+    private prodService: ProductsService,
+    private feedbackService: FeedbackService) { }
 
   ngOnInit(): void {
     this.getProduct();
+    this.getFeedback();
     AOS.init();
   }
-
-  // getProduct(): void {
-  //   this.prodService.getCountProduct(0,3).subscribe(
-  //     data => {
-  //       this.products = data;
-  //     }
-  //   )
-  // }
 
   getProduct(): void {
     this.prodService.getLimitProduct(3).get().then(docSnap => {
@@ -61,6 +62,18 @@ export class HomeComponent implements OnInit {
   private getTotal(products: Array<IProduct>): number {
     return products.reduce((total, prod) => total + (prod.price * prod.count), 0);
   }
+
+  getFeedback(): void {
+    this.feedbackService.getLimitProduct(3).get().then(docSnap => {
+      docSnap.forEach(feed => {
+        const data = feed.data() as IFeedback;
+        const id = feed.id;
+        this.feedback.push({ id, ...data });
+      })
+    })
+  }
+
+
 
 }
 

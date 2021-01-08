@@ -42,7 +42,6 @@ export class HeaderComponent implements OnInit {
     );
   }
 
-
   toggle(): void {
     this.active = !this.active;
   }

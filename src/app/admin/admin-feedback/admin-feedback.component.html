@@ -1,0 +1,52 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Додати відгук</h4>
+</div>
+<div class="modal-body" id="editForm">
+    <div class="form-group">
+        <label for="name">Ім'я користувача</label>
+        <input type="text" [(ngModel)]="name" name="name" id="name" class="form-control"
+            placeholder="name here..">
+    </div>
+    <div class="form-group">
+        <label for="description">Відгук</label>
+        <textarea style="width:100%;" [(ngModel)]="description" name="description" id="description" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="grade">Оцінка</label>
+        <input [(ngModel)]="grade" type="text" class="form-control" id="grade">
+    </div>
+    <div class="custom-file">
+        <input type="file" class="custom-file-input" id="prodImage" (change)="uploadFile($event)">
+        <label class="custom-file-label" for="prodImage">Choose file</label>
+    </div>
+    <button *ngIf="!editStatus" class="btn btn-dark" (click)="addAdminFeed()">Add</button>
+    <button *ngIf="editStatus" (click)="updateAdminFeed()" class="btn btn-light">Save edit</button>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr class="table-active">
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Date</th>
+            <th scope="col">Description</th>
+            <th scope="col">Grade</th>
+            <th scope="col">Image</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let feed of adminFeed; let i=index">
+            <td>{{ i+1 }}</td>
+            <td>{{ feed.name }}</td>
+            <td>{{ feed.date.toDate() | date: 'dd.MM.yy'}}</td>
+            <td>{{ feed.description }}</td>
+            <td>{{ feed.grade }}</td>
+            <td>{{ feed.image }}</td>
+            <td><button (click)="editAdminFeed(feed)" (click)="scrollToEdit()" class="btn btn-dark">Edit</button>
+            </td>
+            <td><button (click)="deleteAdminFeed(feed)" class="btn btn-dark">Delete</button></td>
+        </tr>
+    </tbody>
+</table>

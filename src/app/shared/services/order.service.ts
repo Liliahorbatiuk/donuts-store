@@ -42,5 +42,10 @@ export class OrderService {
   create(order: IOrder): Promise<DocumentReference<IOrder>> {
     return this.ordersRef.add({ ...order });
   }
+
+  delete(id: string): Promise<void> {
+    return this.ordersRef.doc(id).delete();
+  }
+
 } 
 

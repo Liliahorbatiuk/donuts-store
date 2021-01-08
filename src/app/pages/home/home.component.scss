@@ -1,10 +1,6 @@
 @import "/src/app/base/mixins";
 @import "/src/app/base/variables";
 
-:root {
-    --purple: #94399a;
-}
-
 .header{
     width: 100%;
     height: 730px;
@@ -23,11 +19,9 @@
 
 .header-center .title {
     font-size: 3em;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     margin-bottom: 15px;
     font-family: 'Comfotaa', cursive;
-    font-weight: 700;
-    
 } 
 
 .header-center .title-text{
@@ -89,7 +83,8 @@
 .advantages-description {
     width: 70%;
     color: $color;
-    font-family: $ff;
+    font-family: 'Comfotaa', cursive;
+
 }
 
 .advantages-description span {
@@ -235,6 +230,7 @@
     height: 280px;
     margin: auto 20px;
     color: #fff;
+    font-family: 'Comfotaa', cursive;
     @include flex (flex, column wrap, space-between, center);
 }
 
@@ -284,7 +280,7 @@
 }
 
 .feedback {
-    margin: 50px;
+    margin: 50px auto;
 }
 
 .container-feedback {
@@ -314,12 +310,12 @@
         width: 100px;
         height: 100px;
         border-radius: 50%;
-        overflow: hidden;
         @include flex(flex, row nowrap, center, center);
         img {
             width: 100%;
             height: 100%;
             border-radius: 50%;
+            align-self: center;
         }
     }
     &__description {
@@ -336,11 +332,9 @@
         font-size: 14px;
     }
     &__grade {
-        color: yellow;
+        color: rgb(255, 208, 0);
     }
 }
-
-
 
 @media (max-width: 1024px) {
 
@@ -349,16 +343,8 @@
         width: 100%;
         text-align: center;
         text-shadow: 7px 6px 20px #67043f9e;
+        margin-top: 0;
     }
-    
-    .header-center .title {
-        font-size: 3em;
-        text-transform: uppercase;
-        margin-bottom: 15px;
-        font-family: 'Comfotaa', cursive;
-        font-weight: 700;
-        
-    } 
     
     .header-center .title-text{
         margin: 20px 0;
@@ -423,10 +409,6 @@
 
     .container-feedback {
         width: 780px;
-    }
-
-    .view-btn {
-        margin-left: 50px;
     }
 
     .order-container {
@@ -494,13 +476,13 @@
 }
 
 @media (max-width: 475px) {
-    .header-center {
-        height: 300px;
-    }
+    // .header-center {
+    //     height: 300px;
+    // }
     
     .container-about {
         width: 320px;
-        height: 500px;
+        height: 550px;
         margin: 50px auto;
         @include flex(flex, column nowrap, center, center);
 
@@ -567,10 +549,11 @@
         display: none;
     }
 
+
     .container-feedback {
         width: 320px;
         @include flex(flex, column nowrap, center, center);
-        overflow: scroll;
+        // overflow: scroll;
     }
 
     .order-container {
@@ -591,7 +574,7 @@
     .feedback-card {
         width: 90%;
         min-height: 100px;
-        margin: 10px 10px;
+        margin: 10px auto;
         &__description {
             margin-top: 1rem;
         }

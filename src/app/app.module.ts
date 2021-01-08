@@ -37,6 +37,8 @@ import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
 import { OrderComponent } from './pages/order/order.component';
 import { AuthAdminComponent } from './auth-admin/auth-admin.component';
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
+import { AdminFeedbackComponent } from './admin/admin-feedback/admin-feedback.component';
+import { SearchPipe } from './shared/pipes/search.pipe';
 
 
 @NgModule({
@@ -57,7 +59,9 @@ import { AdminCategoryComponent } from './admin/admin-category/admin-category.co
     AdminOrderComponent,
     OrderComponent,
     AuthAdminComponent,
-    AdminCategoryComponent
+    AdminCategoryComponent,
+    AdminFeedbackComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

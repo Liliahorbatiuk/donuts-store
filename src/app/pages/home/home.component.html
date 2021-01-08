@@ -91,10 +91,10 @@
     <div class="create-box">
         <div class="create-text">
             <h3>Склади свій власний набір</h3>
-            <p>Вибери 3, 6 чи 9 пончиків, а ми упакуємо їх в красиву коробку.
+            <p>Вибери 6, 9 чи 12 пончиків, а ми упакуємо їх в красиву коробку.
                 Також ви можете добавити квіти та відкритку і подарувати рідним та друзям.
             </p>
-            <button class="view-btn">Скласти набір</button>
+            <button class="view-btn"[routerLink]="[ '/catalog' ]">Скласти набір</button>
         </div>
         <div class="box" data-aos="zoom-in-up">
             <img src="/assets/images/box.png" alt="">
@@ -121,7 +121,7 @@
             </div>
             <div class="advantages-description">
                 <span>Здійсніть оплату</span>
-                <p>Замовлення можна оплатити карткою онлайн або готівкою кур'єру.</p>
+                <p>Замовлення можна оплатити карткою через термінал або готівкою кур'єру.</p>
             </div>
         </div>
 
@@ -150,16 +150,16 @@
                     <div class="input-group-text"><img src="/assets/images/user.svg" alt=""
                             style="width: 20px; height: 20px;"></div>
                 </div>
-                <input type="text" class="form-control" placeholder="Ваше ім'я">
+                <input type="text" class="form-control" [(ngModel)]="userName" placeholder="Ваше ім'я">
             </div>
             <div class="input-group mb-2 mr-sm-2">
                 <div class="input-group-prepend">
                     <div class="input-group-text"><img src="/assets/images/phone2.svg" alt=""
                             style="width: 20px; height: 20px;"></div>
                 </div>
-                <input type="tel" class="form-control" placeholder="38(___)-___-__-__">
+                <input type="tel" class="form-control" [(ngModel)]="userPhone" placeholder="38(___)-___-__-__">
             </div>
-            <button class="view-btn">Замовити</button>
+            <button class="view-btn" (click)="fastOrder()">Замовити</button>
 
         </div>
     </div>
@@ -168,74 +168,17 @@
 <section class="feedback" id="feedback">
     <h3 class="feedback-title">Відгуки наших клієнтів</h3>
     <div class="container-feedback">
-        <!-- <div class="feedback-card" *ngFor="let slide of slides">
+        <div class="feedback-card" *ngFor="let feed of feedback">
             <div class="feedback-card__avatar">
-                <img src="/assets/images/woman.png" alt="">
-            </div>
-            <div class="feedback-card__description">
-                <span class="feedback-card__name">{{ slide.name }}</span>
-                <span class="feedback-card__date">17.12.20</span>
-                <span class="feedback-card__grade">★★★★★</span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, nulla?</p>
-                <span style="text-decoration: underline;">Читати повністю 🠖</span>
-            </div>
-        </div> -->
-        <div class="feedback-card">
-            <div class="feedback-card__avatar">
-                <img src="/assets/images/man.jpg" alt="">
-            </div>
-            <div class="feedback-card__description">
-                <span class="feedback-card__name">Іван</span>
-                <span class="feedback-card__date">17.12.20</span>
-                <span class="feedback-card__grade">★★★★★</span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, nulla?</p>
-            </div>
-        </div>
-        <div class="feedback-card">
-            <div class="feedback-card__avatar">
-                <img src="/assets/images/man.jpg" alt="">
-            </div>
-            <div class="feedback-card__description">
-                <span class="feedback-card__name">Петро</span>
-                <span class="feedback-card__date">17.12.20</span>
-                <span class="feedback-card__grade">★★★★★</span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, nulla?</p>
-            </div>
-        </div>
-        <div class="feedback-card">
-            <div class="feedback-card__avatar">
-                <img src="/assets/images/man.jpg" alt="">
+                <img [attr.src]="feed.image" alt="">
 
             </div>
             <div class="feedback-card__description">
-                <span class="feedback-card__name">Павло</span>
-                <span class="feedback-card__date">17.12.20</span>
-                <span class="feedback-card__grade">★★★★★</span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, nulla?</p>
+                <span class="feedback-card__name">{{ feed.name }}</span>
+                <span class="feedback-card__date">{{ feed.date.toDate() | date: 'dd.MM.yy' }}</span>
+                <span class="feedback-card__grade">{{ feed.grade }}</span> 
+                <p>{{ feed.description }}</p>
             </div>
         </div>
     </div>
 </section>
-
-<!-- <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)"
-    (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)">
-    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-        <div class="feedback-card">
-            <div class="feedback-card__avatar">
-                <img src="/assets/images/woman.png" alt="">
-            </div>
-            <div class="feedback-card__description">
-                <span class="feedback-card__name">{{ slide.name }}</span>
-                <span class="feedback-card__date">{{ slide.date | date:'d.M.yy' }}</span>
-                <span class="feedback-card__grade">{{ slide.grade }}</span>
-                <p>{{ slide.description }}</p>
-                <span style="text-decoration: underline;">Читати повністю 🠖</span>
-            </div>
-        </div>
-    </div>
-</ngx-slick-carousel> -->
-
-<!-- <button (click)="addSlide()">Add</button>
-<button (click)="removeSlide()">Remove</button>
-<button (click)="slickModal.slickGoTo(2)">slickGoto 2</button>
-<button (click)="slickModal.unslick()">unslick</button> -->

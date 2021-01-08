@@ -14,13 +14,10 @@ import { ProductsService } from 'src/app/shared/services/products.service';
 
 export class CatalogComponent implements OnInit {
   products: Array<IProduct> = []; 
-  allCategory: Array<ICategory> = [];
-  cat: string = '';
+  search: string;
 
   constructor(private prodService: ProductsService,
-              private orderService: OrderService,
-              private catService: CategoriesService
-              ) { }
+              private orderService: OrderService) { }
 
   ngOnInit(): void {
     this.getProducts();
@@ -56,16 +53,4 @@ export class CatalogComponent implements OnInit {
     product.count = 1;
   }
 
-  onCheckCategory(event): void {
-    this.cat = event.target.value;
-    this.prodService.getAll().snapshotChanges().pipe(
-      map(changes =>
-        changes.map(c =>
-          ({ id: c.payload.doc.id, ...c.payload.doc.data() })
-        )
-      )
-    ).subscribe(data => {
-      this.cat = '';
-    });
-  }
 }

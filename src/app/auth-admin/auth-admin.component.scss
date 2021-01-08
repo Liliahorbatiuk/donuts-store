@@ -11,7 +11,6 @@
       font-family: Poppins-Regular, sans-serif;
   }
   
-  /*---------------------------------------------*/
   a {
       font-family: Poppins-Regular;
       font-size: 14px;
@@ -33,7 +32,6 @@
     color: #6675df;
   }
   
-  /*---------------------------------------------*/
   h1,h2,h3,h4,h5,h6 {
       margin: 0px;
   }
@@ -52,7 +50,6 @@
   }
   
   
-  /*---------------------------------------------*/
   input {
       outline: none;
       border: none;
@@ -93,7 +90,6 @@
     margin: 0;
   }
   
-  /*---------------------------------------------*/
   button {
       outline: none !important;
       border: none;
@@ -107,14 +103,7 @@
   iframe {
       border: none !important;
   }
-  
-  /*//////////////////////////////////////////////////////////////////
-  [ utility ]*/
-  
-  
-  
-  /*==================================================================
-  [ Size ]*/
+
   .size1 {
     width: 355px;
     max-width: 100%;
@@ -123,16 +112,12 @@
   .size2 {
     width: calc(100% - 43px);
   }
-  
-  /*==================================================================
-  [ Background ]*/
+
   .bg1 {background: #3b5998;}
   .bg2 {background: #1da1f2;}
   .bg3 {background: #cd201f;}
   
-  
-  /*//////////////////////////////////////////////////////////////////
-  [ login ]*/
+
   .limiter {
     width: 100%;
     margin: 0 auto;
@@ -168,8 +153,6 @@
   
   }
   
-  /*==================================================================
-  [ login more ]*/
   .login100-more {
     width: calc(100% - 560px);
     background-repeat: no-repeat;
@@ -191,11 +174,6 @@
     background: rgba(0,0,0,0.1);
   }
   
-  
-  
-  /*==================================================================
-  [ Form ]*/
-  
   .login100-form {
     width: 560px;
     min-height: 100vh;
@@ -214,11 +192,6 @@
     line-height: 1.2;
     text-align: center;
   }
-  
-  
-  
-  /*------------------------------------------------------------------
-  [ Input ]*/
   
   .wrap-input100 {
     display: -webkit-box;
@@ -275,7 +248,6 @@
     transition: all 0.4s;
   }
   
-  /*---------------------------------------------*/
   
   .focus-input100 {
     position: absolute;
@@ -343,9 +315,6 @@
     font-size: 13px;
   }
   
-  /*==================================================================
-  [ Restyle Checkbox ]*/
-  
   .input-checkbox100 {
     display: none;
   }
@@ -394,9 +363,6 @@
     color: #6675df;
   }
   
-  
-  /*------------------------------------------------------------------
-  [ Button ]*/
   .container-login100-form-btn {
     width: 100%;
     display: -webkit-box;
@@ -439,11 +405,6 @@
     background: #333333;
   }
   
-  
-  
-  /*------------------------------------------------------------------
-  [ Responsive ]*/
-  
   @media (max-width: 992px) {
     .login100-form {
       width: 50%;
@@ -473,10 +434,6 @@
       padding-top: 70px;
     }
   }
-  
-  
-  /*------------------------------------------------------------------
-  [ Alert validate ]*/
   
   .validate-input {
     position: relative;
@@ -544,10 +501,6 @@
     }
   }
   
-  
-  
-  /*==================================================================
-  [ Social ]*/
   .login100-form-social-item {
     width: 36px;
     height: 36px;

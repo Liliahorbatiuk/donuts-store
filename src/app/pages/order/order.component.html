@@ -1,9 +1,9 @@
-<h3 class="order-title text-center" style="font-weight: 600;">Оформлення замовлення</h3>
+<h3 class="order-title text-center" style="font-weight: 500;">Оформлення замовлення</h3>
 <div class="order-body">
-    <div class="order-form">
+    <div class="order-form" >
         <div class="form-group">
             <label for="userName">Ім'я:</label>
-            <input type="text" [(ngModel)]="userName" name="userName" id="userName" class="form-control">
+            <input type="text" [ngClass]="{invalid:isInvalid}" [(ngModel)]="userName" name="userName" id="userName" class="form-control">
         </div>
         <div class="form-group">
             <label for="userTel">Номер телефону:</label>
@@ -29,11 +29,30 @@
             <label for="userComments">Коментар:</label>
             <textarea [(ngModel)]="userComments" name="userComments" id="userComments" style="width: 100%;"></textarea>
         </div>
-        <button type="submit" class="view-btn" (click)="addOrder()">Оформити замовлення</button>
-
+        <div class="form-group form-check">
+            <span>*Вибери 6, 9 чи 12 пончиків, а ми упакуємо їх в красиву коробку.</span>
+            <hr>
+            <input type="checkbox" class="form-check-input" [(ngModel)]="box" name="box" id="box">
+            <label for="box" class="form-check-label">Хочу бокс!</label>
+        </div>
+        <button type="submit" class="view-btn" (click)="addOrder()" (click)="openOrderModal(orderModal)">Оформити замовлення</button>
+        <p class="text1">**Сума мінімального замовлення - 100 грн. <br>
+             При меншій сумі доставка - 50 грн</p>
+        <ng-template #orderModal>
+            <div class="modal-header">
+                <h4 class="modal-title pull-center">Дякуємо{{ userName }}!</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h4>Ваше замовлення прийняте.</h4>
+                <h5>Очікуйте дзвінка консультанта.</h5>
+            </div>
+        </ng-template>
     </div>
 
-    <div class="user-order" >
+    <div class="user-order">
         <div class="basket-product" *ngFor="let prod of basket">
             <div class="basket-product__order">
                 <img [src]="prod.image" alt="">
@@ -52,5 +71,6 @@
                 <span>{{ prod.price * prod.count}} грн</span>
             </div>
         </div>
+        <h4 class="text-danger">До оплати: {{ totalPrice }} грн.</h4>
     </div>
 </div>
