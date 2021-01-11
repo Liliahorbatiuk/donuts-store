@@ -140,7 +140,7 @@
 <section class="order-form">
     <div class="order-container">
         <div class="order-container__sweetbox">
-            <video autoplay loop src="/assets/images/delivery-box.mp4"></video>
+            <video autoplay loop src="/assets/images/delivery-box.webm"></video>
         </div>
         <div class="order-container__form">
             <h3>Заповніть форму для швидкого замовлення</h3>
@@ -159,7 +159,7 @@
                 </div>
                 <input type="tel" class="form-control" [(ngModel)]="userPhone" placeholder="38(___)-___-__-__">
             </div>
-            <button class="view-btn" (click)="fastOrder()">Замовити</button>
+            <button class="view-btn" (click)="addOrder()">Замовити</button>
 
         </div>
     </div>
@@ -176,7 +176,7 @@
             <div class="feedback-card__description">
                 <span class="feedback-card__name">{{ feed.name }}</span>
                 <span class="feedback-card__date">{{ feed.date.toDate() | date: 'dd.MM.yy' }}</span>
-                <span class="feedback-card__grade">{{ feed.grade }}</span> 
+                <span class="feedback-card__grade">{{ feed.grade }} / 5</span> 
                 <p>{{ feed.description }}</p>
             </div>
         </div>

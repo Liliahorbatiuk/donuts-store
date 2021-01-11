@@ -78,7 +78,7 @@ export class OrderComponent implements OnInit {
   }
 
   addOrder(): void {
-    if (this.userName && this.userTel && this.userCity && this.userStreet && this.userHouse && this.totalPrice > 100) {
+    if (this.userName && this.userTel && this.userCity && this.userStreet && this.userHouse) {
       const order = new Order(this.basket, this.userName, this.userTel, this.userCity, this.userStreet,
         this.userHouse, this.totalPrice, this.userFlat, this.userComments, this.box);
       console.log(this.userName);
@@ -94,9 +94,7 @@ export class OrderComponent implements OnInit {
     }
 
   }
-
-
-
+  
   checkUserLogin(): void {
     const user: IProfile = JSON.parse(localStorage.getItem('user'));
     this.userName = user.userName;

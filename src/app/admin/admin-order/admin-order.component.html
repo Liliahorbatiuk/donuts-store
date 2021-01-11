@@ -1,6 +1,6 @@
 <h3 class="title">Замовлення</h3>
 <div class="container">
-    <div class="admin-order" *ngFor="let ord of orders; let i = index" >
+    <div class="admin-order" *ngFor="let ord of orders; let i = index">
         <ol>
             <li>№{{ i+1 }}</li>
             <li>Дата замовлення: {{ ord.date.toDate() | date: 'dd.MM.yy, H:mm'}}</li>
@@ -11,10 +11,23 @@
             <li>Будинок: {{ ord.house }}</li>
             <li>Квартира: {{ ord.flat }}</li>
             <li>Коментар: {{ ord.comments }}</li>
+            <!-- <li>{{ ord.products }}</li> -->
             <li>Бокс: {{ ord.box }}</li>
-            <li><h6>До сплати: {{ ord.totalPrice }} грн.</h6></li>
+            <li>
+                <h6>До сплати: {{ ord.totalPrice }} грн.</h6>
+            </li>
         </ol>
         <button (click)="deleteAdminOrder(ord)" class="btn btn-danger">Виконано</button>
     </div>
 </div>
 
+<h3 class="title">Передзвонити</h3>
+<div class="container">
+    <div class="admin-order" *ngFor="let ord of forms">
+        <ol>
+            <li>{{ ord.name }}</li>
+            <li>{{ ord.phone }}</li>
+        </ol>
+        <button class="btn btn-danger" (click)="deleteForm(ord)">Виконано</button>
+    </div>
+</div>

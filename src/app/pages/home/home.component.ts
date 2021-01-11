@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import AOS from "aos";
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { Form } from 'src/app/shared/classes/form.model';
 import { IFeedback } from 'src/app/shared/interfaces/feedback.interface';
 import { IOrder } from 'src/app/shared/interfaces/order.interface';
 import { IProduct } from 'src/app/shared/interfaces/product.interface';
 import { FeedbackService } from 'src/app/shared/services/feedback.service';
+import { FormService } from 'src/app/shared/services/form.service';
 import { OrderService } from 'src/app/shared/services/order.service';
 import { ProductsService } from 'src/app/shared/services/products.service';
 
@@ -18,12 +20,14 @@ export class HomeComponent implements OnInit {
   basket: Array<IProduct> = [];
   totalPrice = 0;
   feedback: Array<IFeedback> = [];
+  userId: string | number;
   userName: string;
   userPhone: string;
 
   constructor(private orderService: OrderService,
     private prodService: ProductsService,
-    private feedbackService: FeedbackService) { }
+    private feedbackService: FeedbackService,
+    private formService: FormService) { }
 
   ngOnInit(): void {
     this.getProduct();
@@ -73,6 +77,26 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  addOrder(): void {
+    if (this.userName && this.userPhone) {
+      const order = new Form (this.userName, this.userPhone)
+      console.log(this.userName);
+      this.formService.create(order).then(
+        () => {
+          this.basket = [];
+          localStorage.removeItem('basket');
+          this.orderService.basket.next();
+        }
+      )
+      this.totalPrice = 0;
+      this.resetForm();
+    }
+  }
+
+  private resetForm(): void {
+    this.userName = '';
+    this.userPhone = ''
+  }
 
 
 }
